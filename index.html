@@ -30,7 +30,7 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const SF={dub:l=>l.includes('Ger'),sub:l=>l.includes('GerSub'),nursub:l=>l.includes('GerSub')&&!l.includes('Ger')};
 const SN={Ger:'DE Synchro',GerSub:'DE Sub',EngSub:'EN Sub'};
 const gefiltert=()=>{const q=$('#q').value.toLowerCase(),g=$('#g').value,l=$('#l').value;return D.filter(a=>(!g||a.g.includes(g))&&(!l||SF[l](a.l))&&a.t.toLowerCase().includes(q))};
-function zeigen(){const L=gefiltert();$('#anz').textContent=`· ${L.length} Anime · Stand 2026-10-19 14:54`;
+function zeigen(){const L=gefiltert();$('#anz').textContent=`· ${L.length} Anime · Stand 2026-10-19 15:37`;
 $('#grid').innerHTML=L.map(a=>`<a class="k" href="${esc(a.u)}" target="_blank"><img loading="lazy" src="${esc(a.c)}" alt=""><div><b>${esc(a.t)}</b><span>${esc([a.j,a.l.includes('Ger')?'DE Synchro':'',a.g.slice(0,2).join(', ')].filter(Boolean).join(' · '))}</span></div></a>`).join('')}
 $('#btn').onclick=()=>{const L=gefiltert();if(!L.length)return;const a=L[Math.floor(Math.random()*L.length)];const z=$('#zufall');z.style.display='flex';
 z.innerHTML=`<img src="${esc(a.c)}" alt=""><div><h2>${esc(a.t)}</h2><small>${esc([a.j,a.s?a.s+' Staffel(n)':'',a.l.map(x=>SN[x]).join(', '),a.g.join(', ')].filter(Boolean).join(' · '))}</small><p>${esc(a.b)}…</p><a href="${esc(a.u)}" target="_blank">▶ Auf AniWorld öffnen</a></div>`};
