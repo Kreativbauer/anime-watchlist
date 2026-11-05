@@ -488,13 +488,13 @@
           12
         ],
         "2": [
-          4,
+          5,
           4
         ]
       },
-      "gesamt": 16,
+      "gesamt": 17,
       "gesehen": 16,
-      "offen": 0
+      "offen": 1
     },
     "a-returners-magic-should-be-special": {
       "titel": "A Returner's Magic Should Be Special",
@@ -5086,38 +5086,6 @@
       "gesehen": 1,
       "offen": 24
     },
-    "kiznaiver": {
-      "titel": "Kiznaiver",
-      "url": "https://aniworld.to/anime/stream/kiznaiver",
-      "genres": [
-        "Drama",
-        "Action",
-        "Ger",
-        "GerSub",
-        "Mystery",
-        "Psychodrama",
-        "Romanze",
-        "Scifi",
-        "Thriller"
-      ],
-      "jahr": 2013,
-      "bis": "2013",
-      "beschreibung": "Katsuhira lebt in der fiktiven japanischen Stadt Sugomori City. Durch einen Vorfall hat er sein Schmerzempfinden verloren und driftet seither lethargisch und ziellos durchs Leben, ohne sich viel um sich selbst oder sein Wohlergehen zu kümmern. Eines Tages tritt seine Mitschülerin Sonosaki vor ihn und teilt ihm mit, dass er ausgewählt wurde ein Kiznaiver zu sein. Als solcher wird er Teil des Kizuna-Systems, durch das seine Schmerzen ab nun mit einer Gruppe seiner Mitschüler geteilt werden. Ziel des Systems ist es, durch dieses Teilen der Schmerzen eine friedlichere Gesellschaft zu schaffen, doch kümmert das die ohne ihre Zustimmung ausgewählten Testpersonen wenig. Diese sehen sich nun nicht nur mit dieser neuen, schmerzhaften Abhängigkeit von anderen konfrontiert, sondern bekommen auch seltsame Aufgabenstellungen vorgegeben, deren Sinn für sie nicht wirklich erkennbar ist. Für Katsuhiro allerdings ist das System die Möglichkeit, erstmals wieder Schmerzen zu fühlen und Verbindungen zu anderen Menschen aufzubauen.",
-      "staffeln": 1,
-      "filme": false,
-      "imdb": "tt5225712",
-      "cover": "https://aniworld.to/public/img/cover/kiznaiver-stream-cover-Yrqerqd8RjdPELL3kr3dAVOxJblb9UNo_200x300.jpg",
-      "hinzugefuegt_am": "2026-10-19 14:51",
-      "folgen": {
-        "1": [
-          12,
-          11
-        ]
-      },
-      "gesamt": 12,
-      "gesehen": 11,
-      "offen": 1
-    },
     "a-certain-scientific-accelerator": {
       "titel": "A Certain Scientific Accelerator",
       "url": "https://aniworld.to/anime/stream/a-certain-scientific-accelerator",
@@ -9349,40 +9317,6 @@
       "gesehen": 6,
       "offen": 1250
     },
-    "akame-ga-kill": {
-      "titel": "Akame ga Kill!",
-      "url": "https://aniworld.to/anime/stream/akame-ga-kill",
-      "genres": [
-        "Actiondrama",
-        "Action",
-        "Drama",
-        "Ecchi",
-        "EngSub",
-        "Fantasy",
-        "Ger",
-        "GerSub",
-        "Harem",
-        "Komödie",
-        "Romanze"
-      ],
-      "jahr": 2014,
-      "bis": "2014",
-      "beschreibung": "Tatsumi ist ein junger Kämpfer aus einem unter Armut leidenden Dorf des Imperiums. Um sein Dorf finanziell zu unterstützen, macht er sich, mit dem Ziel der Armee beizutreten, auf den Weg zur Hauptstadt des Imperiums. Dort angekommen, muss er jedoch schnell feststellen, dass die Hauptstadt kein so prachtvoller Ort ist wie in seiner Vorstellung.  Mit einem Tritt aus der überlaufenen Kaserne geschmissen und seiner Ersparnisse beraubt, droht Tatsumi seine erste Nacht in der Hauptstadt auf der Straße verbringen zu müssen. Zu seinem Glück wird er von dem wohlhabenden Mädchen Aria aufgelesen, die ihm einen Job als Leibwache anbietet und ihn über den korrupten Zustand des Imperiums aufklärt.",
-      "staffeln": 1,
-      "filme": false,
-      "imdb": "tt3742982",
-      "cover": "https://aniworld.to/public/img/cover/akame-ga-kill-stream-cover-19KuwW3xvqtIIykzby0ABIgSjYN5hdIq_200x300.jpg",
-      "hinzugefuegt_am": "2026-10-19 14:53",
-      "folgen": {
-        "1": [
-          24,
-          23
-        ]
-      },
-      "gesamt": 24,
-      "gesehen": 23,
-      "offen": 1
-    },
     "osamake-romcom-where-the-childhood-friend-wont-lose": {
       "titel": "Osamake: Romcom Where The Childhood Friend Won't Lose",
       "url": "https://aniworld.to/anime/stream/osamake-romcom-where-the-childhood-friend-wont-lose",
@@ -11372,9 +11306,77 @@
       "gesehen": 10,
       "offen": 2,
       "entfernt_am": "2026-11-05 17:28"
+    },
+    "kiznaiver": {
+      "titel": "Kiznaiver",
+      "url": "https://aniworld.to/anime/stream/kiznaiver",
+      "genres": [
+        "Drama",
+        "Action",
+        "Ger",
+        "GerSub",
+        "Mystery",
+        "Psychodrama",
+        "Romanze",
+        "Scifi",
+        "Thriller"
+      ],
+      "jahr": 2013,
+      "bis": "2013",
+      "beschreibung": "Katsuhira lebt in der fiktiven japanischen Stadt Sugomori City. Durch einen Vorfall hat er sein Schmerzempfinden verloren und driftet seither lethargisch und ziellos durchs Leben, ohne sich viel um sich selbst oder sein Wohlergehen zu kümmern. Eines Tages tritt seine Mitschülerin Sonosaki vor ihn und teilt ihm mit, dass er ausgewählt wurde ein Kiznaiver zu sein. Als solcher wird er Teil des Kizuna-Systems, durch das seine Schmerzen ab nun mit einer Gruppe seiner Mitschüler geteilt werden. Ziel des Systems ist es, durch dieses Teilen der Schmerzen eine friedlichere Gesellschaft zu schaffen, doch kümmert das die ohne ihre Zustimmung ausgewählten Testpersonen wenig. Diese sehen sich nun nicht nur mit dieser neuen, schmerzhaften Abhängigkeit von anderen konfrontiert, sondern bekommen auch seltsame Aufgabenstellungen vorgegeben, deren Sinn für sie nicht wirklich erkennbar ist. Für Katsuhiro allerdings ist das System die Möglichkeit, erstmals wieder Schmerzen zu fühlen und Verbindungen zu anderen Menschen aufzubauen.",
+      "staffeln": 1,
+      "filme": false,
+      "imdb": "tt5225712",
+      "cover": "https://aniworld.to/public/img/cover/kiznaiver-stream-cover-Yrqerqd8RjdPELL3kr3dAVOxJblb9UNo_200x300.jpg",
+      "hinzugefuegt_am": "2026-10-19 14:51",
+      "folgen": {
+        "1": [
+          12,
+          11
+        ]
+      },
+      "gesamt": 12,
+      "gesehen": 11,
+      "offen": 1,
+      "entfernt_am": "2026-11-05 18:57"
+    },
+    "akame-ga-kill": {
+      "titel": "Akame ga Kill!",
+      "url": "https://aniworld.to/anime/stream/akame-ga-kill",
+      "genres": [
+        "Actiondrama",
+        "Action",
+        "Drama",
+        "Ecchi",
+        "EngSub",
+        "Fantasy",
+        "Ger",
+        "GerSub",
+        "Harem",
+        "Komödie",
+        "Romanze"
+      ],
+      "jahr": 2014,
+      "bis": "2014",
+      "beschreibung": "Tatsumi ist ein junger Kämpfer aus einem unter Armut leidenden Dorf des Imperiums. Um sein Dorf finanziell zu unterstützen, macht er sich, mit dem Ziel der Armee beizutreten, auf den Weg zur Hauptstadt des Imperiums. Dort angekommen, muss er jedoch schnell feststellen, dass die Hauptstadt kein so prachtvoller Ort ist wie in seiner Vorstellung.  Mit einem Tritt aus der überlaufenen Kaserne geschmissen und seiner Ersparnisse beraubt, droht Tatsumi seine erste Nacht in der Hauptstadt auf der Straße verbringen zu müssen. Zu seinem Glück wird er von dem wohlhabenden Mädchen Aria aufgelesen, die ihm einen Job als Leibwache anbietet und ihn über den korrupten Zustand des Imperiums aufklärt.",
+      "staffeln": 1,
+      "filme": false,
+      "imdb": "tt3742982",
+      "cover": "https://aniworld.to/public/img/cover/akame-ga-kill-stream-cover-19KuwW3xvqtIIykzby0ABIgSjYN5hdIq_200x300.jpg",
+      "hinzugefuegt_am": "2026-10-19 14:53",
+      "folgen": {
+        "1": [
+          24,
+          23
+        ]
+      },
+      "gesamt": 24,
+      "gesehen": 23,
+      "offen": 1,
+      "entfernt_am": "2026-11-05 18:57"
     }
   },
-  "letzter_sync": "2026-11-05 17:38",
+  "letzter_sync": "2026-11-05 18:59",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
