@@ -22,7 +22,7 @@ a.k div{padding:8px}a.k b{display:block;font-size:14px}a.k span{font-size:12px;c
 <header><h1>Meine Watchlist <small id="anz"></small></h1>
 <input id="q" placeholder="Suchen …"><select id="g"><option value="">Alle Genres</option></select>
 <select id="l"><option value="">Alle Sprachen</option><option value="dub">Deutsche Synchro</option><option value="sub">Deutsche Untertitel</option><option value="nursub">Nur Untertitel (keine Synchro)</option></select>
-<select id="f"><option value="">Alle Folgen</option><option value="offen" selected>Noch offene Folgen</option><option value="angefangen">Angefangen</option><option value="neu">Noch nicht angefangen</option><option value="fertig">Alles gesehen</option></select>
+<select id="f"><option value="">Alle Folgen</option><option value="offen" selected>Noch offene Folgen</option><option value="eine">Genau 1 offene Folge</option><option value="angefangen">Angefangen</option><option value="neu">Noch nicht angefangen</option><option value="fertig">Alles gesehen</option></select>
 <button id="btn">🎲 Zufällig</button></header>
 <section id="zufall"></section><main id="grid"></main>
 <script>
@@ -31,7 +31,7 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 [...new Set(D.flatMap(a=>a.g))].sort().forEach(g=>$('#g').insertAdjacentHTML('beforeend',`<option>${esc(g)}</option>`));
 const SF={dub:l=>l.includes('Ger'),sub:l=>l.includes('GerSub'),nursub:l=>l.includes('GerSub')&&!l.includes('Ger')};
 const SN={Ger:'DE Synchro',GerSub:'DE Sub',EngSub:'EN Sub'};
-const FF={offen:a=>a.ge-a.gs>0,angefangen:a=>a.gs>0&&a.ge-a.gs>0,neu:a=>a.gs===0&&a.ge>0,fertig:a=>a.ge-a.gs===0};
+const FF={offen:a=>a.ge-a.gs>0,eine:a=>a.ge-a.gs===1,angefangen:a=>a.gs>0&&a.ge-a.gs>0,neu:a=>a.gs===0&&a.ge>0,fertig:a=>a.ge-a.gs===0};
 if(!D.some(a=>a.ge!=null))$('#f').value='';
 const stand=a=>a.ge==null?'':a.ge-a.gs>0?`${a.gs}/${a.ge} · ${a.ge-a.gs} offen`:`${a.gs}/${a.ge} ✓`;
 const balken=a=>a.ge?`<i class="bar"><i style="width:${Math.round(100*a.gs/a.ge)}%"></i></i>`:'';
