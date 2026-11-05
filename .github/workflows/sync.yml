@@ -1,0 +1,36 @@
+name: Watchlist aktualisieren
+on: workflow_dispatch
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sync
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Berlin
+      AW_SEITE_ORDNER: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login-Cookie aus dem Secret holen
+        env:
+          AW_COOKIES: ${{ secrets.AW_COOKIES }}
+        run: |
+          if [ -z "$AW_COOKIES" ]; then echo "::error::Secret AW_COOKIES fehlt"; exit 1; fi
+          printf '%s\n' "$AW_COOKIES" > .aniworld_cookies.txt
+
+      - name: Sync
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 aniworld_watchlist.py sync
+
+      - name: Seite neu bauen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true
