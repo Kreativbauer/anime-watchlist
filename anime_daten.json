@@ -24,12 +24,12 @@
       "folgen": {
         "1": [
           23,
-          4
+          9
         ]
       },
       "gesamt": 23,
-      "gesehen": 4,
-      "offen": 19
+      "gesehen": 9,
+      "offen": 14
     },
     "kakegurui": {
       "titel": "Kakegurui",
@@ -58,12 +58,12 @@
         ],
         "2": [
           12,
-          0
+          1
         ]
       },
       "gesamt": 24,
-      "gesehen": 12,
-      "offen": 12
+      "gesehen": 13,
+      "offen": 11
     },
     "bad-girl": {
       "titel": "Bad Girl",
@@ -729,13 +729,13 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          5,
+          6,
           2
         ]
       },
-      "gesamt": 5,
+      "gesamt": 6,
       "gesehen": 2,
-      "offen": 3
+      "offen": 4
     },
     "magic-repo-man-dumped-by-my-party-ill-cash-in-with-a-cute-support-fairy-to-become-the-strongest": {
       "titel": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
@@ -1095,13 +1095,13 @@
           3
         ],
         "2": [
-          5,
+          6,
           0
         ]
       },
-      "gesamt": 19,
+      "gesamt": 20,
       "gesehen": 3,
-      "offen": 16
+      "offen": 17
     },
     "skeleton-knight-in-another-world": {
       "titel": "Skeleton Knight in Another World",
@@ -9572,7 +9572,7 @@
       "folgen": {
         "1": [
           12,
-          10
+          11
         ],
         "2": [
           12,
@@ -9580,8 +9580,8 @@
         ]
       },
       "gesamt": 24,
-      "gesehen": 10,
-      "offen": 14
+      "gesehen": 11,
+      "offen": 13
     },
     "tonari-no-seki-kun-the-master-of-killing-time": {
       "titel": "Tonari no Seki-kun: The Master of Killing Time",
@@ -9987,36 +9987,6 @@
       "gesamt": 12,
       "gesehen": 4,
       "offen": 8
-    },
-    "highschool-of-the-dead": {
-      "titel": "Highschool of the Dead",
-      "url": "https://aniworld.to/anime/stream/highschool-of-the-dead",
-      "genres": [
-        "Horror",
-        "Action",
-        "Drama",
-        "Ecchi",
-        "Ger",
-        "GerSub",
-        "Übermäßige Gewaltdarstellung"
-      ],
-      "jahr": 2010,
-      "bis": "2010",
-      "beschreibung": "Überall auf der Welt ist ein unbekannter und tödlicher Virus ausgebrochen, der die Infizierten in Zombies verwandelt. Die Notrufnummer ist dauerhaft besetzt, Handynetze lahm gelegt, Brücken und Zufahrtsstraßen militärisch abgeriegelt. Die menschliche Zivilisation steht vor einem Kollaps und noch gibt es keine Erklärung für den blitzartigen Ausbruch der vermeintlichen Seuche. Während des Ausbruchs der unheimlichen Epidemie, befindet sich Takashi in seiner Schule und bemerkt schnell, dass nicht alles mit rechten Dingen zugeht. Kurzerhand verbarrikadiert er sich mit seiner Jugendliebe Rei auf dem Dach der Schule, um sich vor der wandelnden Leichenflut zu schützen. Ehe die beiden sich versehen, gehören sie einer kleinen Gruppe Überlebender an: Eine im Schwertkampf ausgebildete Mitschülerin, eine mit weiblichen Reizen im Übermaß ausgestattete Schulärztin, die Tochter eines einflussreichen Politikers und ein Waffenliebender Otaku und Außenseiter komplettieren die bunt Zusammengewürfelte Gruppe. Gemeinsam sagen sie den Untoten Invasoren den Kampf an, in der Hoffnung eine zombiefreie Zone zu finden und der drohenden Apokalypse zu entfliehen. Dabei müssen sie jeden ihrer Schritte genau planen, denn es könnten ihre letzten sein - zumindest als Lebende!",
-      "staffeln": 1,
-      "filme": true,
-      "imdb": "tt1685401",
-      "cover": "https://aniworld.to/public/img/cover/highschool-of-the-dead-stream-cover-0opinHyiSD70xy4rFB7wJmhr37Jk50Mn_200x300.jpg",
-      "hinzugefuegt_am": "2026-10-19 14:54",
-      "folgen": {
-        "1": [
-          12,
-          10
-        ]
-      },
-      "gesamt": 12,
-      "gesehen": 10,
-      "offen": 2
     },
     "angels-of-death": {
       "titel": "Angels of Death",
@@ -11371,9 +11341,40 @@
       "cover": "https://aniworld.to/public/img/cover/love-unseen-beneath-the-clear-night-sky-stream-cover-eNsZxDLh1Tmry1E2STcNtv1uow9zbNTP_200x300.png",
       "hinzugefuegt_am": "2026-10-19 14:50",
       "entfernt_am": "2026-11-05 07:50"
+    },
+    "highschool-of-the-dead": {
+      "titel": "Highschool of the Dead",
+      "url": "https://aniworld.to/anime/stream/highschool-of-the-dead",
+      "genres": [
+        "Horror",
+        "Action",
+        "Drama",
+        "Ecchi",
+        "Ger",
+        "GerSub",
+        "Übermäßige Gewaltdarstellung"
+      ],
+      "jahr": 2010,
+      "bis": "2010",
+      "beschreibung": "Überall auf der Welt ist ein unbekannter und tödlicher Virus ausgebrochen, der die Infizierten in Zombies verwandelt. Die Notrufnummer ist dauerhaft besetzt, Handynetze lahm gelegt, Brücken und Zufahrtsstraßen militärisch abgeriegelt. Die menschliche Zivilisation steht vor einem Kollaps und noch gibt es keine Erklärung für den blitzartigen Ausbruch der vermeintlichen Seuche. Während des Ausbruchs der unheimlichen Epidemie, befindet sich Takashi in seiner Schule und bemerkt schnell, dass nicht alles mit rechten Dingen zugeht. Kurzerhand verbarrikadiert er sich mit seiner Jugendliebe Rei auf dem Dach der Schule, um sich vor der wandelnden Leichenflut zu schützen. Ehe die beiden sich versehen, gehören sie einer kleinen Gruppe Überlebender an: Eine im Schwertkampf ausgebildete Mitschülerin, eine mit weiblichen Reizen im Übermaß ausgestattete Schulärztin, die Tochter eines einflussreichen Politikers und ein Waffenliebender Otaku und Außenseiter komplettieren die bunt Zusammengewürfelte Gruppe. Gemeinsam sagen sie den Untoten Invasoren den Kampf an, in der Hoffnung eine zombiefreie Zone zu finden und der drohenden Apokalypse zu entfliehen. Dabei müssen sie jeden ihrer Schritte genau planen, denn es könnten ihre letzten sein - zumindest als Lebende!",
+      "staffeln": 1,
+      "filme": true,
+      "imdb": "tt1685401",
+      "cover": "https://aniworld.to/public/img/cover/highschool-of-the-dead-stream-cover-0opinHyiSD70xy4rFB7wJmhr37Jk50Mn_200x300.jpg",
+      "hinzugefuegt_am": "2026-10-19 14:54",
+      "folgen": {
+        "1": [
+          12,
+          10
+        ]
+      },
+      "gesamt": 12,
+      "gesehen": 10,
+      "offen": 2,
+      "entfernt_am": "2026-11-05 17:28"
     }
   },
-  "letzter_sync": "2026-11-05 07:56",
+  "letzter_sync": "2026-11-05 17:29",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
