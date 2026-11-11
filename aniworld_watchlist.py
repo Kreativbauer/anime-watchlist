@@ -23,6 +23,7 @@ Benutzung (ohne Argumente startet ein Menü):
   python3 aniworld_watchlist.py zufall -f eine         (nur noch 1 Folge offen)
   python3 aniworld_watchlist.py liste -f offen   (nur mit noch offenen Folgen)
   python3 aniworld_watchlist.py liste [-g Genre] [-s dub|sub|nursub] [--entfernt]
+  python3 aniworld_watchlist.py liste -o wenig  (sortiert: wenigste offene Folgen zuerst)
   python3 aniworld_watchlist.py suche <text>
   python3 aniworld_watchlist.py genres
   python3 aniworld_watchlist.py online-einrichten   Seite auf GitHub Pages stellen (einmalig)
@@ -467,6 +468,33 @@ def _filter_text(genre, sprache, folgen=None):
     return ", ".join(teile)
 
 
+def _offen_wenig(e):
+    # fertige (0 offen) und unbekannte ans Ende, sonst wenigste offene zuerst
+    o = e.get("offen")
+    return (o is None or o == 0, o or 0)
+
+
+SORTIERUNGEN = {
+    "watchlist":   ("Watchlist-Reihenfolge",           None, False),
+    "wenig":       ("wenigste offene Folgen zuerst",   _offen_wenig, False),
+    "viel":        ("meiste offene Folgen zuerst",     lambda e: (e.get("offen") is None, -(e.get("offen") or 0)), False),
+    "fortschritt": ("am weitesten geschaut zuerst",
+                    lambda e: (not e.get("gesamt"), -(e.get("gesehen") or 0) / (e.get("gesamt") or 1)), False),
+    "titel":       ("Titel A–Z",                       lambda e: e["titel"].lower(), False),
+    "jahr-neu":    ("Jahr, neueste zuerst",            lambda e: (e.get("jahr") is None, -(e.get("jahr") or 0)), False),
+    "jahr-alt":    ("Jahr, älteste zuerst",            lambda e: (e.get("jahr") is None, e.get("jahr") or 0), False),
+    "hinzugefuegt": ("zuletzt hinzugefügt zuerst",     lambda e: e.get("hinzugefuegt_am") or "", True),
+}
+
+
+def _sortieren(eintraege, sortierung):
+    if not sortierung or sortierung == "watchlist":
+        return eintraege
+    _, schluessel, umgekehrt = SORTIERUNGEN[sortierung]
+    # stabil: bei Gleichstand bleibt die Watchlist-Reihenfolge erhalten
+    return sorted(eintraege, key=schluessel, reverse=umgekehrt)
+
+
 def _zeigen(eintrag, lang=False):
     info = []
     if eintrag.get("jahr"):
@@ -528,7 +556,8 @@ def befehl_liste(args):
     genre = getattr(args, "genre", None)
     sprache = getattr(args, "sprache", None)
     folgen = getattr(args, "folgen", None)
-    eintraege = [e for e in quelle.values() if _passt(e, genre, sprache, folgen)]
+    sortierung = getattr(args, "sortierung", None)
+    eintraege = _sortieren([e for e in quelle.values() if _passt(e, genre, sprache, folgen)], sortierung)
     for i, e in enumerate(eintraege, 1):
         zusatz = f" – entfernt am {e['entfernt_am']}" if "entfernt_am" in e else ""
         genres = f"  [{', '.join(_echte_genres(e)[:3])}]" if _echte_genres(e) else ""
@@ -537,6 +566,8 @@ def befehl_liste(args):
             if "offen" in e else ""
         print(f"{i:4}. {e['titel']}{dub}{stand}{genres}{zusatz}")
     filt = _filter_text(genre, sprache, folgen)
+    if sortierung and sortierung != "watchlist":
+        filt = ", ".join(filter(None, [filt, "sortiert: " + SORTIERUNGEN[sortierung][0]]))
     print(f"\n{len(eintraege)} Anime" + (f" ({filt})" if filt else "")
           + f" · letzter Sync: {daten['letzter_sync'] or 'nie'}")
 
@@ -591,7 +622,7 @@ def exportieren(daten):
     nutzdaten = json.dumps([
         {"t": e["titel"], "u": e["url"], "c": e.get("cover", ""), "g": _echte_genres(e), "l": _sprachen(e),
          "gs": e.get("gesehen"), "ge": e.get("gesamt"),
-         "j": e.get("jahr"), "s": e.get("staffeln"), "b": e.get("beschreibung", "")[:300]}
+         "j": e.get("jahr"), "s": e.get("staffeln"), "h": e.get("hinzugefuegt_am") or "", "b": e.get("beschreibung", "")[:300]}
         for e in daten["aktiv"].values()], ensure_ascii=False).replace("</", "<\\/")
     with open(HTML_DATEI, "w", encoding="utf-8") as f:
         f.write(HTML_VORLAGE.replace("__DATEN__", nutzdaten)
@@ -625,6 +656,7 @@ a.k div{padding:8px}a.k b{display:block;font-size:14px}a.k span{font-size:12px;c
 <input id="q" placeholder="Suchen …"><select id="g"><option value="">Alle Genres</option></select>
 <select id="l"><option value="">Alle Sprachen</option><option value="dub">Deutsche Synchro</option><option value="sub">Deutsche Untertitel</option><option value="nursub">Nur Untertitel (keine Synchro)</option></select>
 <select id="f"><option value="">Alle Folgen</option><option value="offen" selected>Noch offene Folgen</option><option value="eine">Genau 1 offene Folge</option><option value="angefangen">Angefangen</option><option value="neu">Noch nicht angefangen</option><option value="fertig">Alles gesehen</option></select>
+<select id="o" title="Sortierung"><option value="">Watchlist-Reihenfolge</option><option value="wenig">Wenigste offene Folgen</option><option value="viel">Meiste offene Folgen</option><option value="fortschritt">Am weitesten geschaut</option><option value="titel">Titel A–Z</option><option value="jneu">Jahr: neueste zuerst</option><option value="jalt">Jahr: älteste zuerst</option><option value="hinzu">Zuletzt hinzugefügt</option></select>
 <button id="btn">🎲 Zufällig</button>
 <a id="sync" class="knopf" href="__SYNC__" target="_blank" title="Öffnet GitHub: dort auf „Run workflow“ klicken, nach 1–2 Minuten diese Seite neu laden">🔄 Aktualisieren</a></header>
 <section id="zufall"></section><main id="grid"></main>
@@ -639,11 +671,22 @@ if(!D.some(a=>a.ge!=null))$('#f').value='';
 const stand=a=>a.ge==null?'':a.ge-a.gs>0?`${a.gs}/${a.ge} · ${a.ge-a.gs} offen`:`${a.gs}/${a.ge} ✓`;
 const balken=a=>a.ge?`<i class="bar"><i style="width:${Math.round(100*a.gs/a.ge)}%"></i></i>`:'';
 const gefiltert=()=>{const q=$('#q').value.toLowerCase(),g=$('#g').value,l=$('#l').value,f=$('#f').value;return D.filter(a=>(!g||a.g.includes(g))&&(!l||SF[l](a.l))&&(!f||(a.ge!=null&&FF[f](a)))&&a.t.toLowerCase().includes(q))};
-function zeigen(){const L=gefiltert();$('#anz').textContent=`· ${L.length} Anime · Stand __STAND__`;
+const OF=a=>a.ge==null?null:a.ge-a.gs;
+// Vergleichsfunktionen; Einträge ohne Wert landen immer am Ende, Gleichstand behält die Watchlist-Reihenfolge
+const hinten=(x,y,f)=>x==null?(y==null?0:1):y==null?-1:f(x,y);
+const OS={wenig:(a,b)=>hinten(OF(a)||null,OF(b)||null,(x,y)=>x-y)||(OF(a)===0)-(OF(b)===0),
+viel:(a,b)=>hinten(OF(a),OF(b),(x,y)=>y-x),
+fortschritt:(a,b)=>hinten(a.ge?a.gs/a.ge:null,b.ge?b.gs/b.ge:null,(x,y)=>y-x),
+titel:(a,b)=>a.t.localeCompare(b.t,'de',{sensitivity:'base'}),
+jneu:(a,b)=>hinten(a.j,b.j,(x,y)=>y-x),jalt:(a,b)=>hinten(a.j,b.j,(x,y)=>x-y),
+hinzu:(a,b)=>hinten(a.h||null,b.h||null,(x,y)=>y.localeCompare(x))};
+const sortiert=L=>{const o=$('#o').value;return OS[o]?[...L].sort(OS[o]):L};
+try{const o=localStorage.getItem('sortierung');if(o&&OS[o])$('#o').value=o}catch(e){}
+function zeigen(){const L=sortiert(gefiltert());try{localStorage.setItem('sortierung',$('#o').value)}catch(e){}$('#anz').textContent=`· ${L.length} Anime · Stand __STAND__`;
 $('#grid').innerHTML=L.map(a=>`<a class="k" href="${esc(a.u)}" target="_blank"><img loading="lazy" src="${esc(a.c)}" alt=""><div><b>${esc(a.t)}</b><span>${esc([a.j,a.l.includes('Ger')?'DE Synchro':'',a.g.slice(0,2).join(', ')].filter(Boolean).join(' · '))}</span>${a.ge!=null?`<span class="st">${esc(stand(a))}</span>${balken(a)}`:''}</div></a>`).join('')}
 $('#btn').onclick=()=>{const L=gefiltert();if(!L.length)return;const a=L[Math.floor(Math.random()*L.length)];const z=$('#zufall');z.style.display='flex';
 z.innerHTML=`<img src="${esc(a.c)}" alt=""><div><h2>${esc(a.t)}</h2><small>${esc([a.j,a.s?a.s+' Staffel(n)':'',stand(a),a.l.map(x=>SN[x]).join(', '),a.g.join(', ')].filter(Boolean).join(' · '))}</small><p>${esc(a.b)}…</p><a href="${esc(a.u)}" target="_blank">▶ Auf AniWorld öffnen</a></div>`};
-$('#q').oninput=$('#g').onchange=$('#l').onchange=$('#f').onchange=zeigen;zeigen();
+$('#q').oninput=$('#g').onchange=$('#l').onchange=$('#f').onchange=$('#o').onchange=zeigen;zeigen();
 </script></body></html>
 """
 
@@ -798,6 +841,11 @@ def menue():
                 webbrowser.open(d["aktiv"][d["zufall_verlauf"][0]]["url"])
         elif wahl == "4":
             a.genre, a.sprache, a.entfernt = None, None, False
+            namen = list(SORTIERUNGEN)
+            print("Sortierung:  " + "  ".join(f"{i}) {SORTIERUNGEN[k][0]}" for i, k in enumerate(namen, 1))
+                  + "  (leer = Watchlist-Reihenfolge)")
+            w = input("> ").strip()
+            a.sortierung = namen[int(w) - 1] if w.isdigit() and 1 <= int(w) <= len(namen) else None
             befehl_liste(a)
         elif wahl == "5":
             a.text = [input("Suchtext: ")]
@@ -844,6 +892,8 @@ def main():
     l.add_argument("-g", "--genre")
     l.add_argument("-s", "--sprache", choices=SPRACH_FILTER)
     l.add_argument("-f", "--folgen", choices=[*FOLGEN_FILTER, "alle"])
+    l.add_argument("-o", "--sortierung", choices=list(SORTIERUNGEN), default="watchlist",
+                   help="; ".join(f"{k} = {v[0]}" for k, v in SORTIERUNGEN.items()))
     l.add_argument("--entfernt", action="store_true", help="entfernte/fertige zeigen")
     l.set_defaults(f=befehl_liste)
     s = sub.add_parser("suche", help="in Titeln und Beschreibungen suchen")
