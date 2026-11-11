@@ -551,13 +551,13 @@
           12
         ],
         "2": [
-          5,
+          6,
           3
         ]
       },
-      "gesamt": 17,
+      "gesamt": 18,
       "gesehen": 15,
-      "offen": 2
+      "offen": 3
     },
     "reincarnated-as-a-sword": {
       "titel": "Reincarnated as a Sword",
@@ -585,13 +585,13 @@
           12
         ],
         "2": [
-          6,
+          7,
           1
         ]
       },
-      "gesamt": 18,
+      "gesamt": 19,
       "gesehen": 13,
-      "offen": 5
+      "offen": 6
     },
     "the-detective-is-already-dead": {
       "titel": "The Detective Is Already Dead",
@@ -618,13 +618,13 @@
           12
         ],
         "2": [
-          5,
+          6,
           1
         ]
       },
-      "gesamt": 17,
+      "gesamt": 18,
       "gesehen": 13,
-      "offen": 4
+      "offen": 5
     },
     "even-the-student-council-has-its-holes": {
       "titel": "Even the Student Council Has Its Holes!",
@@ -11406,7 +11406,7 @@
       "entfernt_am": "2026-11-11 09:51"
     }
   },
-  "letzter_sync": "2026-11-11 09:53",
+  "letzter_sync": "2026-11-11 22:49",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
