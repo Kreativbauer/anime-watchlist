@@ -8134,34 +8134,6 @@
       "gesehen": 12,
       "offen": 12
     },
-    "chillin-in-my-30s-after-getting-fired-from-the-demon-kings-army": {
-      "titel": "Chillin’ in My 30s after Getting Fired from the Demon King’s Army",
-      "url": "https://aniworld.to/anime/stream/chillin-in-my-30s-after-getting-fired-from-the-demon-kings-army",
-      "genres": [
-        "Komödie",
-        "Action",
-        "EngSub",
-        "Fantasy",
-        "GerSub"
-      ],
-      "jahr": 2023,
-      "bis": "2023",
-      "beschreibung": "Dariel ist ein Dunkler Soldat in der Armee des Dämonenkönigs, der keine Magie anwenden kann. Trotz dessen hat er sein Können unter Beweis gestellt und ist dank seines Talents und seiner Energie zum Assistenten der Vier Generäle aufgestiegen. Doch alsbald die Generäle ersetzt wurden, wurde auch Dariel aus der Armee entlassen. Am Boden zerstört erreicht er ein menschliches Dorf und stellt fest, dass seine Fähigkeiten, die für Dämonen eigentlich nutzlose sind, aufgeblüht sind. Dariel beschließt, sein weiteres Leben in diesem Dorf zu fristen und die Arbeitsaufträge kommen in Strömen!",
-      "staffeln": 1,
-      "filme": false,
-      "imdb": "tt21342052",
-      "cover": "https://aniworld.to/public/img/cover/chillin-in-my-30s-after-getting-fired-from-the-demon-kings-army-stream-cover-UccLqdKag1tQf5qU08Cd17y8iAtPuk1v_200x300.jpg",
-      "hinzugefuegt_am": "2026-10-19 14:53",
-      "folgen": {
-        "1": [
-          12,
-          11
-        ]
-      },
-      "gesamt": 12,
-      "gesehen": 11,
-      "offen": 1
-    },
     "the-helpful-fox-senko-san": {
       "titel": "The Helpful Fox Senko-san",
       "url": "https://aniworld.to/anime/stream/the-helpful-fox-senko-san",
@@ -11403,9 +11375,38 @@
       "gesehen": 11,
       "offen": 1,
       "entfernt_am": "2026-11-08 22:20"
+    },
+    "chillin-in-my-30s-after-getting-fired-from-the-demon-kings-army": {
+      "titel": "Chillin’ in My 30s after Getting Fired from the Demon King’s Army",
+      "url": "https://aniworld.to/anime/stream/chillin-in-my-30s-after-getting-fired-from-the-demon-kings-army",
+      "genres": [
+        "Komödie",
+        "Action",
+        "EngSub",
+        "Fantasy",
+        "GerSub"
+      ],
+      "jahr": 2023,
+      "bis": "2023",
+      "beschreibung": "Dariel ist ein Dunkler Soldat in der Armee des Dämonenkönigs, der keine Magie anwenden kann. Trotz dessen hat er sein Können unter Beweis gestellt und ist dank seines Talents und seiner Energie zum Assistenten der Vier Generäle aufgestiegen. Doch alsbald die Generäle ersetzt wurden, wurde auch Dariel aus der Armee entlassen. Am Boden zerstört erreicht er ein menschliches Dorf und stellt fest, dass seine Fähigkeiten, die für Dämonen eigentlich nutzlose sind, aufgeblüht sind. Dariel beschließt, sein weiteres Leben in diesem Dorf zu fristen und die Arbeitsaufträge kommen in Strömen!",
+      "staffeln": 1,
+      "filme": false,
+      "imdb": "tt21342052",
+      "cover": "https://aniworld.to/public/img/cover/chillin-in-my-30s-after-getting-fired-from-the-demon-kings-army-stream-cover-UccLqdKag1tQf5qU08Cd17y8iAtPuk1v_200x300.jpg",
+      "hinzugefuegt_am": "2026-10-19 14:53",
+      "folgen": {
+        "1": [
+          12,
+          11
+        ]
+      },
+      "gesamt": 12,
+      "gesehen": 11,
+      "offen": 1,
+      "entfernt_am": "2026-11-11 09:51"
     }
   },
-  "letzter_sync": "2026-11-10 21:35",
+  "letzter_sync": "2026-11-11 09:53",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
