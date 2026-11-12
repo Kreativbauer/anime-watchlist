@@ -4733,33 +4733,6 @@
       "gesehen": 1,
       "offen": 11
     },
-    "love-flops": {
-      "titel": "LOVE FLOPS",
-      "url": "https://aniworld.to/anime/stream/love-flops",
-      "genres": [
-        "Romantische Komödie",
-        "EngSub",
-        "GerSub",
-        "Harem"
-      ],
-      "jahr": 2022,
-      "bis": "2022",
-      "beschreibung": "Eigentlich glaubt der Oberschüler Asahi Kashiwagi nicht wirklich an Wahrsagerei. Doch als er eines Morgens eine sonderbare Begegnung nach der anderen erlebt, genauso, wie es der Fernsehwahrsager kurz voher prophezeit hat, wird er misstrauisch. Die drei Mädchen, die er trifft, sind Austauschschülerinnen aus anderen Ländern: Amelia Irving kommt aus Amerika, Ilya Ilyukhin aus Bulgarien und Karin Istel aus Deutschland. Er trifft auch auf seine neue Lehrerin, die Chinesin Bai Mongfa. Dank des Fernsehprogramms weiß Asahi mehr über sie, als er eigentlich sollte und ist nicht überrascht, als er alle Neuankömmlinge an seiner Schule wiedertrifft und sein Leben eine überraschende Wendung nimmt.",
-      "staffeln": 1,
-      "filme": false,
-      "imdb": "tt21606344",
-      "cover": "https://aniworld.to/public/img/cover/love-flops-stream-cover-FGU7Bz9JjlsuQsJgXEWtDLoDD1GL3jJa_200x300.png",
-      "hinzugefuegt_am": "2026-10-19 14:51",
-      "folgen": {
-        "1": [
-          12,
-          10
-        ]
-      },
-      "gesamt": 12,
-      "gesehen": 10,
-      "offen": 2
-    },
     "mecha-ude-mechanical-arms": {
       "titel": "Mecha-Ude: Mechanical Arms",
       "url": "https://aniworld.to/anime/stream/mecha-ude-mechanical-arms",
@@ -11405,9 +11378,37 @@
       "gesehen": 11,
       "offen": 1,
       "entfernt_am": "2026-11-12 21:13"
+    },
+    "love-flops": {
+      "titel": "LOVE FLOPS",
+      "url": "https://aniworld.to/anime/stream/love-flops",
+      "genres": [
+        "Romantische Komödie",
+        "EngSub",
+        "GerSub",
+        "Harem"
+      ],
+      "jahr": 2022,
+      "bis": "2022",
+      "beschreibung": "Eigentlich glaubt der Oberschüler Asahi Kashiwagi nicht wirklich an Wahrsagerei. Doch als er eines Morgens eine sonderbare Begegnung nach der anderen erlebt, genauso, wie es der Fernsehwahrsager kurz voher prophezeit hat, wird er misstrauisch. Die drei Mädchen, die er trifft, sind Austauschschülerinnen aus anderen Ländern: Amelia Irving kommt aus Amerika, Ilya Ilyukhin aus Bulgarien und Karin Istel aus Deutschland. Er trifft auch auf seine neue Lehrerin, die Chinesin Bai Mongfa. Dank des Fernsehprogramms weiß Asahi mehr über sie, als er eigentlich sollte und ist nicht überrascht, als er alle Neuankömmlinge an seiner Schule wiedertrifft und sein Leben eine überraschende Wendung nimmt.",
+      "staffeln": 1,
+      "filme": false,
+      "imdb": "tt21606344",
+      "cover": "https://aniworld.to/public/img/cover/love-flops-stream-cover-FGU7Bz9JjlsuQsJgXEWtDLoDD1GL3jJa_200x300.png",
+      "hinzugefuegt_am": "2026-10-19 14:51",
+      "folgen": {
+        "1": [
+          12,
+          10
+        ]
+      },
+      "gesamt": 12,
+      "gesehen": 10,
+      "offen": 2,
+      "entfernt_am": "2026-11-12 22:01"
     }
   },
-  "letzter_sync": "2026-11-12 21:15",
+  "letzter_sync": "2026-11-12 22:02",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
