@@ -1,5 +1,32 @@
 {
   "aktiv": {
+    "patema-inverted-beginning-of-the-day": {
+      "titel": "Patema Inverted - Beginning of the Day",
+      "url": "https://aniworld.to/anime/stream/patema-inverted-beginning-of-the-day",
+      "genres": [
+        "Abenteuer",
+        "Ger",
+        "GerSub",
+        "Scifi"
+      ],
+      "jahr": 2012,
+      "bis": "2013",
+      "beschreibung": "Sakasama no Patema: Beginning of the Day stellt ursprünglich einen Prolog zum Film Sakasama no Patema dar, behandelt aber die ersten zwanzig Minuten des Films in identischer Ausführung.  Sie leben in unterirdischen Tunnelsystemen und tragen Schutzanzüge. Ihrer Meinung nach ist es ein glückliches und normales Leben, denn etwas anderes außer den dunklen und endlosen Tunneln kennen sie nicht. Patema, die Prinzessin der Untergrundgemeinschaft, war schon immer vom „Unbekannten“ fasziniert. Egal ob gefährlich oder nicht, Patema zieht es magisch immer wieder an neue, unbekannte Ort hin. Als sie von der verbotenen &amp;amp;amp;amp;quot;Danger Zone&amp;amp;amp;amp;quot; hört, kann sie ihre Neugierde nicht zügeln. Doch zu ihren Ungunsten stellt sie bald fest, was das „danger“ bedeutet...",
+      "staffeln": 1,
+      "filme": true,
+      "imdb": "tt2981768",
+      "cover": "https://aniworld.to/public/img/cover/patema-inverted-beginning-of-the-day-stream-cover-9YAo4REKWNaKayMHCG4jpoJwoTvB5KRA_200x300.jpg",
+      "hinzugefuegt_am": "2026-10-19 14:50",
+      "folgen": {
+        "1": [
+          4,
+          4
+        ]
+      },
+      "gesamt": 4,
+      "gesehen": 4,
+      "offen": 0
+    },
     "full-clearing-another-world-under-a-goddess-with-zero-believers": {
       "titel": "Full Clearing Another World under a Goddess with Zero Believers",
       "url": "https://aniworld.to/anime/stream/full-clearing-another-world-under-a-goddess-with-zero-believers",
@@ -2659,33 +2686,6 @@
       "gesamt": 12,
       "gesehen": 8,
       "offen": 4
-    },
-    "patema-inverted-beginning-of-the-day": {
-      "titel": "Patema Inverted - Beginning of the Day",
-      "url": "https://aniworld.to/anime/stream/patema-inverted-beginning-of-the-day",
-      "genres": [
-        "Abenteuer",
-        "Ger",
-        "GerSub",
-        "Scifi"
-      ],
-      "jahr": 2012,
-      "bis": "2013",
-      "beschreibung": "Sakasama no Patema: Beginning of the Day stellt ursprünglich einen Prolog zum Film Sakasama no Patema dar, behandelt aber die ersten zwanzig Minuten des Films in identischer Ausführung.  Sie leben in unterirdischen Tunnelsystemen und tragen Schutzanzüge. Ihrer Meinung nach ist es ein glückliches und normales Leben, denn etwas anderes außer den dunklen und endlosen Tunneln kennen sie nicht. Patema, die Prinzessin der Untergrundgemeinschaft, war schon immer vom „Unbekannten“ fasziniert. Egal ob gefährlich oder nicht, Patema zieht es magisch immer wieder an neue, unbekannte Ort hin. Als sie von der verbotenen &amp;amp;amp;amp;quot;Danger Zone&amp;amp;amp;amp;quot; hört, kann sie ihre Neugierde nicht zügeln. Doch zu ihren Ungunsten stellt sie bald fest, was das „danger“ bedeutet...",
-      "staffeln": 1,
-      "filme": true,
-      "imdb": "tt2981768",
-      "cover": "https://aniworld.to/public/img/cover/patema-inverted-beginning-of-the-day-stream-cover-9YAo4REKWNaKayMHCG4jpoJwoTvB5KRA_200x300.jpg",
-      "hinzugefuegt_am": "2026-10-19 14:50",
-      "folgen": {
-        "1": [
-          4,
-          1
-        ]
-      },
-      "gesamt": 4,
-      "gesehen": 1,
-      "offen": 3
     },
     "synduality-noir": {
       "titel": "SYNDUALITY Noir",
@@ -11408,7 +11408,7 @@
       "entfernt_am": "2026-11-12 22:01"
     }
   },
-  "letzter_sync": "2026-11-12 22:02",
+  "letzter_sync": "2026-11-12 22:26",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
