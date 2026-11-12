@@ -515,13 +515,13 @@
           12
         ],
         "2": [
-          5,
+          6,
           4
         ]
       },
-      "gesamt": 17,
+      "gesamt": 18,
       "gesehen": 16,
-      "offen": 1
+      "offen": 2
     },
     "a-returners-magic-should-be-special": {
       "titel": "A Returner's Magic Should Be Special",
@@ -756,13 +756,13 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          6,
+          7,
           2
         ]
       },
-      "gesamt": 6,
+      "gesamt": 7,
       "gesehen": 2,
-      "offen": 4
+      "offen": 5
     },
     "magic-repo-man-dumped-by-my-party-ill-cash-in-with-a-cute-support-fairy-to-become-the-strongest": {
       "titel": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
@@ -1122,13 +1122,13 @@
           3
         ],
         "2": [
-          6,
+          7,
           0
         ]
       },
-      "gesamt": 20,
+      "gesamt": 21,
       "gesehen": 3,
-      "offen": 17
+      "offen": 18
     },
     "skeleton-knight-in-another-world": {
       "titel": "Skeleton Knight in Another World",
@@ -1972,34 +1972,6 @@
       "gesamt": 11,
       "gesehen": 2,
       "offen": 9
-    },
-    "you-cant-be-in-a-rom-com-with-your-childhood-friends": {
-      "titel": "You Can't Be In a Rom-Com with Your Childhood Friends!",
-      "url": "https://aniworld.to/anime/stream/you-cant-be-in-a-rom-com-with-your-childhood-friends",
-      "genres": [
-        "Romantische Komödie",
-        "Ecchi",
-        "EngSub",
-        "GerSub",
-        "Harem"
-      ],
-      "jahr": 2026,
-      "bis": "2026",
-      "beschreibung": "Eeyuu, ein Oberschüler, hat ein großes Problem. Seine beiden Kindheitsfreundinnen Shio und Akari, die die gleiche Schule wie er besuchen, sind viel zu niedlich! Wenn sie wüssten, dass er sie in einem anderen, sexuellen, Licht betrachtet, jetzt, da sie älter geworden sind … nun, das wäre sehr peinlich! Andererseits müssten auch die beiden ihre Geheimnisse haben, oder? Es ist zu verlockend! Und kompliziert!!! Aber Kindheitsfreunde sind und bleiben die besten …",
-      "staffeln": 1,
-      "filme": false,
-      "imdb": "tt38253018",
-      "cover": "https://aniworld.to/public/img/cover/you-cant-be-in-a-rom-com-with-your-childhood-friends-stream-cover-Sh4otbxpWfUC6LlWdk1JnD4LtoBiJV04_200x300.png",
-      "hinzugefuegt_am": "2026-10-19 14:50",
-      "folgen": {
-        "1": [
-          12,
-          11
-        ]
-      },
-      "gesamt": 12,
-      "gesehen": 11,
-      "offen": 1
     },
     "chained-soldier": {
       "titel": "Chained Soldier",
@@ -11404,9 +11376,38 @@
       "gesehen": 11,
       "offen": 1,
       "entfernt_am": "2026-11-11 09:51"
+    },
+    "you-cant-be-in-a-rom-com-with-your-childhood-friends": {
+      "titel": "You Can't Be In a Rom-Com with Your Childhood Friends!",
+      "url": "https://aniworld.to/anime/stream/you-cant-be-in-a-rom-com-with-your-childhood-friends",
+      "genres": [
+        "Romantische Komödie",
+        "Ecchi",
+        "EngSub",
+        "GerSub",
+        "Harem"
+      ],
+      "jahr": 2026,
+      "bis": "2026",
+      "beschreibung": "Eeyuu, ein Oberschüler, hat ein großes Problem. Seine beiden Kindheitsfreundinnen Shio und Akari, die die gleiche Schule wie er besuchen, sind viel zu niedlich! Wenn sie wüssten, dass er sie in einem anderen, sexuellen, Licht betrachtet, jetzt, da sie älter geworden sind … nun, das wäre sehr peinlich! Andererseits müssten auch die beiden ihre Geheimnisse haben, oder? Es ist zu verlockend! Und kompliziert!!! Aber Kindheitsfreunde sind und bleiben die besten …",
+      "staffeln": 1,
+      "filme": false,
+      "imdb": "tt38253018",
+      "cover": "https://aniworld.to/public/img/cover/you-cant-be-in-a-rom-com-with-your-childhood-friends-stream-cover-Sh4otbxpWfUC6LlWdk1JnD4LtoBiJV04_200x300.png",
+      "hinzugefuegt_am": "2026-10-19 14:50",
+      "folgen": {
+        "1": [
+          12,
+          11
+        ]
+      },
+      "gesamt": 12,
+      "gesehen": 11,
+      "offen": 1,
+      "entfernt_am": "2026-11-12 21:13"
     }
   },
-  "letzter_sync": "2026-11-11 22:49",
+  "letzter_sync": "2026-11-12 21:15",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
