@@ -1,5 +1,63 @@
 {
   "aktiv": {
+    "air": {
+      "titel": "Air",
+      "url": "https://aniworld.to/anime/stream/air",
+      "genres": [
+        "Drama",
+        "Alltagsleben",
+        "Fantasy",
+        "GerSub",
+        "Harem",
+        "Komödie",
+        "Mystery",
+        "Romanze"
+      ],
+      "jahr": 2005,
+      "bis": "2005",
+      "beschreibung": "Der Anime handelt von Yukito Kunisaki, einem Reisenden, der schon seit Jahren nach dem „Mädchen im Himmel“ sucht. Die Legende über das geflügelte Menschenwesen wird in seiner Familie seit Generationen weitererzählt, damit eines Tages ein Nachkomme das tragische Schicksal jenes sagenhaften Mädchens zum Positiven verändert.\n\nAuf seiner Reise kommt Yukito in eine kleine Stadt am Strand, wo er das geheimnisvolle Mädchen Misuzu trifft, das unbedingt mit ihm Freundschaft schließen möchte. Somit nimmt eine Geschichte ihren Lauf, deren Wurzeln mehrere tausend Jahre in der Vergangenheit liegen …",
+      "staffeln": 1,
+      "filme": true,
+      "imdb": null,
+      "cover": "https://aniworld.to/public/img/cover/air-stream-cover-lCnnHgaOcYzibVghNM7mSnTvGLac0bCX_200x300.jpg",
+      "hinzugefuegt_am": "2026-11-16 21:10",
+      "folgen": {
+        "1": [
+          12,
+          0
+        ]
+      },
+      "gesamt": 12,
+      "gesehen": 0,
+      "offen": 12
+    },
+    "now-that-i-can-control-reality-with-a-mouse-cursor-im-gonna-click-away-on-the-girls": {
+      "titel": "Now That I Can Control Reality With A Mouse Cursor, I’m Gonna Click Away On The Girls!",
+      "url": "https://aniworld.to/anime/stream/now-that-i-can-control-reality-with-a-mouse-cursor-im-gonna-click-away-on-the-girls",
+      "genres": [
+        "Drama",
+        "Ecchi",
+        "GerSub",
+        "Romanze"
+      ],
+      "jahr": 2026,
+      "bis": "Heute",
+      "beschreibung": "Takumi hat nur Augen für Mone, seine Freundin aus Kindertagen, doch sie hat bloß Verachtung für den einsamen und introvertierten Otaku übrig. Während des Informatikunterrichts entdeckt er zu seiner großen Überraschung, dass sein Cursor den Bildschirm verlassen und die Realität nach seinen Wünschen verändern kann. Takumi sieht in dieser mysteriösen Kraft die perfekte Gelegenheit, sich an Mone zu rächen.",
+      "staffeln": 1,
+      "filme": false,
+      "imdb": null,
+      "cover": "https://aniworld.to/public/img/cover/now-that-i-can-control-reality-with-a-mouse-cursor-im-gonna-click-away-on-the-girls-stream-cover-VDxkFlHSZphSA9lJjcXFxgoeoSLop2Rz_200x300.png",
+      "hinzugefuegt_am": "2026-11-16 21:10",
+      "folgen": {
+        "1": [
+          7,
+          5
+        ]
+      },
+      "gesamt": 7,
+      "gesehen": 5,
+      "offen": 2
+    },
     "patema-inverted-beginning-of-the-day": {
       "titel": "Patema Inverted - Beginning of the Day",
       "url": "https://aniworld.to/anime/stream/patema-inverted-beginning-of-the-day",
@@ -46,12 +104,12 @@
       "hinzugefuegt_am": "2026-11-08 21:53",
       "folgen": {
         "1": [
-          5,
-          5
+          6,
+          6
         ]
       },
-      "gesamt": 5,
-      "gesehen": 5,
+      "gesamt": 6,
+      "gesehen": 6,
       "offen": 0
     },
     "86-eighty-six": {
@@ -112,12 +170,12 @@
         ],
         "2": [
           12,
-          1
+          2
         ]
       },
       "gesamt": 24,
-      "gesehen": 13,
-      "offen": 11
+      "gesehen": 14,
+      "offen": 10
     },
     "bad-girl": {
       "titel": "Bad Girl",
@@ -167,13 +225,13 @@
       "hinzugefuegt_am": "2026-11-05 07:50",
       "folgen": {
         "1": [
-          7,
+          8,
           6
         ]
       },
-      "gesamt": 7,
+      "gesamt": 8,
       "gesehen": 6,
-      "offen": 1
+      "offen": 2
     },
     "cultural-exchange-with-a-game-centre-girl": {
       "titel": "Cultural Exchange with a Game Centre Girl",
@@ -441,12 +499,12 @@
       "hinzugefuegt_am": "2026-10-19 14:49",
       "folgen": {
         "1": [
-          5,
-          5
+          6,
+          6
         ]
       },
-      "gesamt": 5,
-      "gesehen": 5,
+      "gesamt": 6,
+      "gesehen": 6,
       "offen": 0
     },
     "reborn-as-a-space-mercenary-i-woke-up-piloting-the-strongest-starship": {
@@ -472,13 +530,13 @@
       "hinzugefuegt_am": "2026-10-19 14:49",
       "folgen": {
         "1": [
-          6,
-          5
+          7,
+          7
         ]
       },
-      "gesamt": 6,
-      "gesehen": 5,
-      "offen": 1
+      "gesamt": 7,
+      "gesehen": 7,
+      "offen": 0
     },
     "the-apothecary-diaries": {
       "titel": "The Apothecary Diaries",
@@ -508,12 +566,12 @@
           24
         ],
         "3": [
-          6,
-          3
+          7,
+          4
         ]
       },
-      "gesamt": 54,
-      "gesehen": 51,
+      "gesamt": 55,
+      "gesehen": 52,
       "offen": 3
     },
     "the-iceblade-sorcerer-shall-rule-the-world": {
@@ -671,13 +729,13 @@
       "hinzugefuegt_am": "2026-10-19 14:49",
       "folgen": {
         "1": [
-          6,
+          7,
           1
         ]
       },
-      "gesamt": 6,
+      "gesamt": 7,
       "gesehen": 1,
-      "offen": 5
+      "offen": 6
     },
     "why-does-nobody-remember-me-in-this-world": {
       "titel": "Why does Nobody Remember Me in This World?",
@@ -755,13 +813,13 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          7,
+          8,
           6
         ]
       },
-      "gesamt": 7,
+      "gesamt": 8,
       "gesehen": 6,
-      "offen": 1
+      "offen": 2
     },
     "fx-fighter-kurumichan": {
       "titel": "FX Fighter KURUMICHAN",
@@ -811,12 +869,12 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          6,
-          6
+          7,
+          7
         ]
       },
-      "gesamt": 6,
-      "gesehen": 6,
+      "gesamt": 7,
+      "gesehen": 7,
       "offen": 0
     },
     "strike-witches": {
@@ -884,13 +942,13 @@
           12
         ],
         "2": [
-          7,
+          8,
           2
         ]
       },
-      "gesamt": 19,
+      "gesamt": 20,
       "gesehen": 14,
-      "offen": 5
+      "offen": 6
     },
     "my-stepmother-and-stepsisters-arent-wicked": {
       "titel": "My Stepmother and Stepsisters Aren't Wicked",
@@ -1497,13 +1555,13 @@
           22
         ],
         "2": [
-          17,
+          18,
           0
         ]
       },
-      "gesamt": 44,
+      "gesamt": 45,
       "gesehen": 22,
-      "offen": 22
+      "offen": 23
     },
     "wistoria-wand-and-sword": {
       "titel": "Wistoria: Wand and Sword",
@@ -3772,13 +3830,13 @@
           1
         ],
         "2": [
-          6,
+          7,
           0
         ]
       },
-      "gesamt": 18,
+      "gesamt": 19,
       "gesehen": 1,
-      "offen": 17
+      "offen": 18
     },
     "knights-magic": {
       "titel": "Knight's & Magic",
@@ -4653,13 +4711,13 @@
           17
         ],
         "2": [
-          5,
+          6,
           0
         ]
       },
-      "gesamt": 30,
+      "gesamt": 31,
       "gesehen": 17,
-      "offen": 13
+      "offen": 14
     },
     "baki": {
       "titel": "Baki",
@@ -5490,12 +5548,12 @@
       "folgen": {
         "1": [
           12,
-          10
+          11
         ]
       },
       "gesamt": 12,
-      "gesehen": 10,
-      "offen": 2
+      "gesehen": 11,
+      "offen": 1
     },
     "vampire-dormitory": {
       "titel": "Vampire Dormitory",
@@ -6311,13 +6369,13 @@
           0
         ],
         "3": [
-          7,
+          8,
           0
         ]
       },
-      "gesamt": 31,
+      "gesamt": 32,
       "gesehen": 10,
-      "offen": 21
+      "offen": 22
     },
     "blue-exorcist": {
       "titel": "Blue Exorcist",
@@ -7360,13 +7418,13 @@
           0
         ],
         "5": [
-          6,
+          7,
           0
         ]
       },
-      "gesamt": 176,
+      "gesamt": 177,
       "gesehen": 0,
-      "offen": 176
+      "offen": 177
     },
     "future-diary": {
       "titel": "Future Diary",
@@ -9071,7 +9129,7 @@
       "folgen": {
         "1": [
           29,
-          6
+          8
         ],
         "2": [
           27,
@@ -9199,8 +9257,8 @@
         ]
       },
       "gesamt": 1257,
-      "gesehen": 6,
-      "offen": 1251
+      "gesehen": 8,
+      "offen": 1249
     },
     "osamake-romcom-where-the-childhood-friend-wont-lose": {
       "titel": "Osamake: Romcom Where The Childhood Friend Won't Lose",
@@ -11408,7 +11466,7 @@
       "entfernt_am": "2026-11-12 22:01"
     }
   },
-  "letzter_sync": "2026-11-12 22:26",
+  "letzter_sync": "2026-11-16 21:13",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
