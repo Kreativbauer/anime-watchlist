@@ -650,15 +650,20 @@ a.k img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:va
 a.k div{padding:8px}a.k b{display:block;font-size:14px}a.k span{font-size:12px;color:var(--muted);display:block}a.k .st{color:var(--fg)}
 .bar{display:block;height:4px;border-radius:2px;background:var(--line);margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
 #zufall{display:none;margin:16px;padding:16px;background:var(--card);border:2px solid var(--accent);border-radius:12px;gap:16px}
+#menu{display:contents}#sync{order:1}#auf{display:none;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+@media (max-width:700px){header{padding:10px 12px}h1{font-size:16px;flex:1 1 0;min-width:0}h1 small{display:block;font-size:12px;font-weight:400}
+#auf{display:block}#menu{display:none;order:9;flex:1 1 100%;flex-direction:column;gap:8px}header.offen #menu{display:flex}
+#menu>*{width:100%}.knopf{text-align:center}}
 #zufall img{width:120px;border-radius:8px}#zufall h2{margin:0 0 4px}#zufall p{margin:6px 0;color:var(--muted)}
 </style></head><body>
 <header><h1>Meine Watchlist <small id="anz"></small></h1>
-<input id="q" placeholder="Suchen …"><select id="g"><option value="">Alle Genres</option></select>
+<button id="auf" aria-expanded="false" aria-controls="menu">☰ Filter</button>
+<div id="menu"><input id="q" placeholder="Suchen …"><select id="g"><option value="">Alle Genres</option></select>
 <select id="l"><option value="">Alle Sprachen</option><option value="dub">Deutsche Synchro</option><option value="sub">Deutsche Untertitel</option><option value="nursub">Nur Untertitel (keine Synchro)</option></select>
 <select id="f"><option value="">Alle Folgen</option><option value="offen" selected>Noch offene Folgen</option><option value="eine">Genau 1 offene Folge</option><option value="angefangen">Angefangen</option><option value="neu">Noch nicht angefangen</option><option value="fertig">Alles gesehen</option></select>
 <select id="o" title="Sortierung"><option value="">Watchlist-Reihenfolge</option><option value="wenig">Wenigste offene Folgen</option><option value="viel">Meiste offene Folgen</option><option value="fortschritt">Am weitesten geschaut</option><option value="titel">Titel A–Z</option><option value="jneu">Jahr: neueste zuerst</option><option value="jalt">Jahr: älteste zuerst</option><option value="hinzu">Zuletzt hinzugefügt</option></select>
-<button id="btn">🎲 Zufällig</button>
-<a id="sync" class="knopf" href="__SYNC__" target="_blank" title="Öffnet GitHub: dort auf „Run workflow“ klicken, nach 1–2 Minuten diese Seite neu laden">🔄 Aktualisieren</a></header>
+<a id="sync" class="knopf" href="__SYNC__" target="_blank" title="Öffnet GitHub: dort auf „Run workflow“ klicken, nach 1–2 Minuten diese Seite neu laden">🔄 Aktualisieren</a></div>
+<button id="btn">🎲 Zufällig</button></header>
 <section id="zufall"></section><main id="grid"></main>
 <script>
 const D=__DATEN__;const $=s=>document.querySelector(s);
@@ -682,10 +687,14 @@ jneu:(a,b)=>hinten(a.j,b.j,(x,y)=>y-x),jalt:(a,b)=>hinten(a.j,b.j,(x,y)=>x-y),
 hinzu:(a,b)=>hinten(a.h||null,b.h||null,(x,y)=>y.localeCompare(x))};
 const sortiert=L=>{const o=$('#o').value;return OS[o]?[...L].sort(OS[o]):L};
 try{const o=localStorage.getItem('sortierung');if(o&&OS[o])$('#o').value=o}catch(e){}
-function zeigen(){const L=sortiert(gefiltert());try{localStorage.setItem('sortierung',$('#o').value)}catch(e){}$('#anz').textContent=`· ${L.length} Anime · Stand __STAND__`;
+function zeigen(){const L=sortiert(gefiltert());try{localStorage.setItem('sortierung',$('#o').value)}catch(e){}
+// Handy: Anzahl aktiver Filter am Menü-Knopf anzeigen, damit man sie auch eingeklappt sieht
+const n=[$('#q').value,$('#g').value,$('#l').value,$('#f').value!=='offen',$('#o').value].filter(Boolean).length;
+$('#auf').textContent='☰ Filter'+(n?` (${n})`:'');$('#anz').textContent=`· ${L.length} Anime · Stand __STAND__`;
 $('#grid').innerHTML=L.map(a=>`<a class="k" href="${esc(a.u)}" target="_blank"><img loading="lazy" src="${esc(a.c)}" alt=""><div><b>${esc(a.t)}</b><span>${esc([a.j,a.l.includes('Ger')?'DE Synchro':'',a.g.slice(0,2).join(', ')].filter(Boolean).join(' · '))}</span>${a.ge!=null?`<span class="st">${esc(stand(a))}</span>${balken(a)}`:''}</div></a>`).join('')}
 $('#btn').onclick=()=>{const L=gefiltert();if(!L.length)return;const a=L[Math.floor(Math.random()*L.length)];const z=$('#zufall');z.style.display='flex';
 z.innerHTML=`<img src="${esc(a.c)}" alt=""><div><h2>${esc(a.t)}</h2><small>${esc([a.j,a.s?a.s+' Staffel(n)':'',stand(a),a.l.map(x=>SN[x]).join(', '),a.g.join(', ')].filter(Boolean).join(' · '))}</small><p>${esc(a.b)}…</p><a href="${esc(a.u)}" target="_blank">▶ Auf AniWorld öffnen</a></div>`};
+$('#auf').onclick=()=>{const h=$('header');$('#auf').setAttribute('aria-expanded',h.classList.toggle('offen'))};
 $('#q').oninput=$('#g').onchange=$('#l').onchange=$('#f').onchange=$('#o').onchange=zeigen;zeigen();
 </script></body></html>
 """
