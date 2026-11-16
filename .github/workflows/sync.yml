@@ -1,5 +1,8 @@
 name: Watchlist aktualisieren
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: '5 2 * * *'
 
 permissions:
   contents: write
