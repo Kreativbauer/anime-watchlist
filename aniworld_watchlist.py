@@ -333,7 +333,9 @@ def folgen_aktualisieren(client, slug, eintrag, voll=False, gruendlich=False):
     Außerdem übersprungen (außer bei gruendlich/voll): Staffeln, von denen noch
     keine Folge gesehen ist, solange eine frühere Staffel noch nicht fertig ist –
     man schaut der Reihe nach, also hat sich dort nichts geändert.
-    Gibt (Anfragen, übersprungene Staffeln) zurück."""
+    Komplett gesehene, abgeschlossene Anime kosten keine Anfrage – nur bei der
+    gründlichen Prüfung wird ihre Übersichtsseite auf neue Staffeln geprüft.
+    Gibt (Anfragen, übersprungene Staffeln, neue Staffel gefunden) zurück."""
     cache = eintrag.setdefault("folgen", {})
     laufend = eintrag.get("bis") in (None, "Heute")
     anzahl = eintrag.get("staffeln") or 0
@@ -351,6 +353,17 @@ def folgen_aktualisieren(client, slug, eintrag, voll=False, gruendlich=False):
 
     offen = [st for st in range(1, anzahl + 1) if noetig(st)]
     anfragen = uebersprungen = 0
+    vorher = anzahl
+    if not offen and gruendlich and anzahl:
+        # alles gesehen & abgeschlossen → nur Übersichtsseite: neue Staffel? läuft wieder?
+        seite, _ = client.holen(f"{BASIS}/anime/stream/{slug}")
+        anfragen += 1
+        info = anime_details(seite)
+        if info.get("bis"):
+            eintrag["bis"] = info["bis"]
+        if info["staffeln"] > anzahl:
+            offen = list(range(anzahl + 1, info["staffeln"] + 1))
+            anzahl = eintrag["staffeln"] = info["staffeln"]
     while offen:
         st = offen.pop(0)
         if unangetastet_und_davor_offen(st):
@@ -366,7 +379,7 @@ def folgen_aktualisieren(client, slug, eintrag, voll=False, gruendlich=False):
     eintrag["gesamt"] = sum(c[0] for c in cache.values())
     eintrag["gesehen"] = sum(c[1] for c in cache.values())
     eintrag["offen"] = eintrag["gesamt"] - eintrag["gesehen"]
-    return anfragen, uebersprungen
+    return anfragen, uebersprungen, anzahl > vorher
 
 
 def alle_folgen_aktualisieren(client, aktiv, voll=False, gruendlich=False):
@@ -375,21 +388,26 @@ def alle_folgen_aktualisieren(client, aktiv, voll=False, gruendlich=False):
     print(f"Prüfe gesehene Folgen ({len(kandidaten)} Anime"
           + (", gründlich" if gruendlich and not voll else "") + ") …")
     fertig = anfragen = uebersprungen = fehler = 0
+    neue_staffel = []
     with ThreadPoolExecutor(FOLGEN_PARALLEL) as pool:
         jobs = {pool.submit(folgen_aktualisieren, client, s, e, voll, gruendlich): e
                 for s, e in kandidaten}
         for job in as_completed(jobs):
             fertig += 1
             try:
-                a, u = job.result()
+                a, u, neu = job.result()
                 anfragen += a
                 uebersprungen += u
+                if neu:
+                    neue_staffel.append(jobs[job])
             except Exception:
                 fehler += 1
             print(f"\r   {fertig}/{len(kandidaten)}", end="", flush=True)
-    print(f"\r   {anfragen} Staffeln geprüft"
+    print(f"\r   {anfragen} Seiten geprüft"
           + (f", {uebersprungen} noch nicht angefangene übersprungen" if uebersprungen else "")
           + (f", {fehler} Fehler" if fehler else "") + "      ")
+    for e in neue_staffel:
+        print(f"   🆕 neue Staffel: {e['titel']} (jetzt {e['staffeln']} Staffeln)")
 
 
 def befehl_sync(args=None):
