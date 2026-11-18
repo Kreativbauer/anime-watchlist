@@ -2,7 +2,7 @@ name: Watchlist aktualisieren
 on: 
   workflow_dispatch:
   schedule:
-    - cron: '5 2 * * *'
+    - cron: '5 22 * * *'  # UTC = 23:05 Uhr Winterzeit, 00:05 Uhr Sommerzeit (Start durch GitHub oft verspätet)
 
 permissions:
   contents: write
