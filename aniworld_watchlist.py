@@ -16,6 +16,7 @@ Benutzung (ohne Argumente startet ein Menü):
   python3 aniworld_watchlist.py                 Menü
   python3 aniworld_watchlist.py login           einloggen (einmalig)
   python3 aniworld_watchlist.py sync            Watchlist abgleichen
+  python3 aniworld_watchlist.py sync --gruendlich   auch übersprungene Staffeln prüfen
   python3 aniworld_watchlist.py zufall          zufälligen Anime vorschlagen
   python3 aniworld_watchlist.py zufall -g Action -n 3 --oeffnen
   python3 aniworld_watchlist.py zufall -s dub    (nur mit deutscher Synchro)
@@ -310,6 +311,7 @@ def abos_holen(client):
 
 FOLGE_RE = re.compile(r'<a\s+href="/anime/stream/[^/"]+/staffel-(\d+)/episode-(\d+)"([^>]*)>')
 FOLGEN_PARALLEL = 4  # gleichzeitige Anfragen beim Prüfen
+GRUENDLICH_TAGE = 7  # so oft werden auch übersprungene Staffeln mitgeprüft
 
 
 def staffel_folgen(seite, staffel):
@@ -324,10 +326,14 @@ def staffel_folgen(seite, staffel):
     return len(alle), len(gesehen)
 
 
-def folgen_aktualisieren(client, slug, eintrag, voll=False):
+def folgen_aktualisieren(client, slug, eintrag, voll=False, gruendlich=False):
     """Prüft nur Staffeln, in denen sich etwas geändert haben kann:
     noch nicht komplett gesehen, noch nie geprüft, oder letzte Staffel eines
-    laufenden Anime (neue Folgen). Gibt die Anzahl der Anfragen zurück."""
+    laufenden Anime (neue Folgen).
+    Außerdem übersprungen (außer bei gruendlich/voll): Staffeln, von denen noch
+    keine Folge gesehen ist, solange eine frühere Staffel noch nicht fertig ist –
+    man schaut der Reihe nach, also hat sich dort nichts geändert.
+    Gibt (Anfragen, übersprungene Staffeln) zurück."""
     cache = eintrag.setdefault("folgen", {})
     laufend = eintrag.get("bis") in (None, "Heute")
     anzahl = eintrag.get("staffeln") or 0
@@ -336,10 +342,20 @@ def folgen_aktualisieren(client, slug, eintrag, voll=False):
         c = cache.get(str(st))
         return voll or c is None or c[1] < c[0] or (st == anzahl and laufend)
 
+    def unangetastet_und_davor_offen(st):
+        c = cache.get(str(st))
+        if voll or gruendlich or c is None or c[1] > 0 or (st == anzahl and laufend):
+            return False
+        # Staffeln werden aufsteigend geprüft → frühere sind hier schon aktuell
+        return any((v := cache.get(str(k))) is None or v[1] < v[0] for k in range(1, st))
+
     offen = [st for st in range(1, anzahl + 1) if noetig(st)]
-    anfragen = 0
+    anfragen = uebersprungen = 0
     while offen:
         st = offen.pop(0)
+        if unangetastet_und_davor_offen(st):
+            uebersprungen += 1
+            continue
         seite, _ = client.holen(f"{BASIS}/anime/stream/{slug}/staffel-{st}")
         anfragen += 1
         cache[str(st)] = list(staffel_folgen(seite, st))
@@ -350,24 +366,30 @@ def folgen_aktualisieren(client, slug, eintrag, voll=False):
     eintrag["gesamt"] = sum(c[0] for c in cache.values())
     eintrag["gesehen"] = sum(c[1] for c in cache.values())
     eintrag["offen"] = eintrag["gesamt"] - eintrag["gesehen"]
-    return anfragen
+    return anfragen, uebersprungen
 
 
-def alle_folgen_aktualisieren(client, aktiv, voll=False):
+def alle_folgen_aktualisieren(client, aktiv, voll=False, gruendlich=False):
     from concurrent.futures import ThreadPoolExecutor, as_completed
     kandidaten = [(s, e) for s, e in aktiv.items() if e.get("staffeln")]
-    print(f"Prüfe gesehene Folgen ({len(kandidaten)} Anime) …")
-    fertig = anfragen = fehler = 0
+    print(f"Prüfe gesehene Folgen ({len(kandidaten)} Anime"
+          + (", gründlich" if gruendlich and not voll else "") + ") …")
+    fertig = anfragen = uebersprungen = fehler = 0
     with ThreadPoolExecutor(FOLGEN_PARALLEL) as pool:
-        jobs = {pool.submit(folgen_aktualisieren, client, s, e, voll): e for s, e in kandidaten}
+        jobs = {pool.submit(folgen_aktualisieren, client, s, e, voll, gruendlich): e
+                for s, e in kandidaten}
         for job in as_completed(jobs):
             fertig += 1
             try:
-                anfragen += job.result()
+                a, u = job.result()
+                anfragen += a
+                uebersprungen += u
             except Exception:
                 fehler += 1
             print(f"\r   {fertig}/{len(kandidaten)}", end="", flush=True)
-    print(f"\r   {anfragen} Staffeln geprüft" + (f", {fehler} Fehler" if fehler else "") + "      ")
+    print(f"\r   {anfragen} Staffeln geprüft"
+          + (f", {uebersprungen} noch nicht angefangene übersprungen" if uebersprungen else "")
+          + (f", {fehler} Fehler" if fehler else "") + "      ")
 
 
 def befehl_sync(args=None):
@@ -452,7 +474,14 @@ def befehl_sync(args=None):
     reihenfolge = {slug: i for i, (slug, _, _) in enumerate(karten)}
     daten["aktiv"] = dict(sorted(aktiv.items(), key=lambda kv: reihenfolge.get(kv[0], 1e9)))
     if not getattr(args, "schnell", False):
-        alle_folgen_aktualisieren(client, daten["aktiv"], getattr(args, "voll", False))
+        # einmal pro Woche auch übersprungene Staffeln prüfen (falls man mal
+        # eine Staffel ausgelassen hat)
+        letzte = daten.get("letzte_gruendliche_pruefung") or ""
+        gruendlich = getattr(args, "gruendlich", False) or not letzte or \
+            (datetime.now() - datetime.strptime(letzte, "%Y-%m-%d %H:%M")).days >= GRUENDLICH_TAGE
+        alle_folgen_aktualisieren(client, daten["aktiv"], getattr(args, "voll", False), gruendlich)
+        if gruendlich or getattr(args, "voll", False):
+            daten["letzte_gruendliche_pruefung"] = jetzt()
     daten["letzter_sync"] = jetzt()
     daten_speichern(daten)
     exportieren(daten)
@@ -942,6 +971,8 @@ def main():
     sy = sub.add_parser("sync", help="Watchlist und gesehene Folgen abgleichen")
     sy.add_argument("--schnell", action="store_true", help="gesehene Folgen nicht prüfen")
     sy.add_argument("--voll", action="store_true", help="alle Staffeln neu prüfen")
+    sy.add_argument("--gruendlich", action="store_true",
+                    help="auch noch nicht angefangene Staffeln prüfen (passiert sonst 1× pro Woche)")
     sy.set_defaults(f=befehl_sync)
     z = sub.add_parser("zufall", help="zufälligen Anime vorschlagen")
     z.add_argument("-g", "--genre")
