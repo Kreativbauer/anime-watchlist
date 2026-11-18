@@ -8,6 +8,8 @@ jedem Update ab:
   * neue Anime werden hinzugefügt (nur für diese werden Details geladen)
   * Anime, die nicht mehr in der Watchlist sind (z.B. fertig geschaut),
     wandern in die Liste "Entfernt / fertig"
+  * abonnierte Anime werden mit aufgenommen – was in Watchlist UND Abos
+    steht, gibt es trotzdem nur einmal
   * alles andere bleibt, wie es ist – nichts wird komplett neu geladen
 
 Benutzung (ohne Argumente startet ein Menü):
@@ -23,6 +25,7 @@ Benutzung (ohne Argumente startet ein Menü):
   python3 aniworld_watchlist.py zufall -f eine         (nur noch 1 Folge offen)
   python3 aniworld_watchlist.py liste -f offen   (nur mit noch offenen Folgen)
   python3 aniworld_watchlist.py liste [-g Genre] [-s dub|sub|nursub] [--entfernt]
+  python3 aniworld_watchlist.py liste --abos -f fertig  (Abos, die schon komplett gesehen sind)
   python3 aniworld_watchlist.py liste -o wenig  (sortiert: wenigste offene Folgen zuerst)
   python3 aniworld_watchlist.py suche <text>
   python3 aniworld_watchlist.py genres
@@ -52,6 +55,9 @@ from datetime import datetime
 
 BASIS = "https://aniworld.to"
 WATCHLIST_URL = BASIS + "/account/watchlist"
+# Abonnierte Anime – werden mit der Watchlist zusammengeführt (ohne Doppelte).
+# Falls AniWorld die Seite woanders hat, per Umgebungsvariable AW_ABO_URL ändern.
+ABO_URL = os.environ.get("AW_ABO_URL") or BASIS + "/account/subscribed"
 ORDNER = os.path.dirname(os.path.abspath(__file__))
 DATEN_DATEI = os.path.join(ORDNER, "anime_daten.json")
 COOKIE_DATEI = os.path.join(ORDNER, ".aniworld_cookies.txt")
@@ -153,10 +159,10 @@ def ist_eingeloggt(seite):
         and 'name="password"' not in seite
 
 
-def weitere_seiten(seite):
-    """Findet Pagination-Links der Watchlist (falls es welche gibt)."""
+def weitere_seiten(seite, pfad="account/watchlist"):
+    """Findet Pagination-Links der Watchlist bzw. Abo-Liste (falls es welche gibt)."""
     links = set()
-    for href in re.findall(r'href="([^"]*account/watchlist[^"]*)"', seite):
+    for href in re.findall(rf'href="([^"]*{re.escape(pfad)}[^"]*)"', seite):
         href = html.unescape(href)
         if re.search(r"(page|seite|p)=?\d+|/\d+/?$", href):
             links.add(urllib.parse.urljoin(BASIS, href))
@@ -264,13 +270,14 @@ def befehl_cookie(_args=None):
         print("❌ Mit diesem Cookie bist du nicht eingeloggt.")
 
 
-def watchlist_holen(client):
-    """Holt ALLE Seiten der Watchlist. Gibt None zurück, wenn nicht eingeloggt."""
-    seite, _ = client.holen(WATCHLIST_URL)
+def watchlist_holen(client, url=WATCHLIST_URL):
+    """Holt ALLE Seiten der Watchlist (bzw. Abo-Liste). None, wenn nicht eingeloggt."""
+    seite, _ = client.holen(url)
     if not ist_eingeloggt(seite):
         return None
+    pfad = urllib.parse.urlparse(url).path.strip("/")
     karten = watchlist_karten(seite)
-    besucht, offen = {WATCHLIST_URL}, weitere_seiten(seite)
+    besucht, offen = {url}, weitere_seiten(seite, pfad)
     while offen:
         url = offen.pop()
         if url in besucht:
@@ -280,7 +287,20 @@ def watchlist_holen(client):
         s, _ = client.holen(url)
         bekannt = {k[0] for k in karten}
         karten += [k for k in watchlist_karten(s) if k[0] not in bekannt]
-        offen |= weitere_seiten(s) - besucht
+        offen |= weitere_seiten(s, pfad) - besucht
+    return karten
+
+
+def abos_holen(client):
+    """Abo-Liste holen. None, wenn das nicht geklappt hat – dann bleiben die
+    bisher bekannten Abos unverändert (nichts wird fälschlich entfernt)."""
+    try:
+        karten = watchlist_holen(client, ABO_URL)
+    except Exception as e:
+        print(f"⚠️  Abos konnten nicht geladen werden ({e}) – bisheriger Stand bleibt.")
+        return None
+    if karten is None:
+        print("⚠️  Abo-Seite nicht lesbar – bisheriger Stand bleibt.")
     return karten
 
 
@@ -362,8 +382,30 @@ def befehl_sync(args=None):
             print("   Auf dem Mac 'login' ausführen und das Secret AW_COOKIES neu setzen.")
             sys.exit(1)
         return
+    print("Lade Abos …")
+    abo_karten = abos_holen(client)
     daten = daten_laden()
     aktiv, entfernt = daten["aktiv"], daten["entfernt"]
+    if abo_karten is None:  # Abos unbekannt → bisherige behalten
+        abo_slugs = {slug for slug, e in aktiv.items() if e.get("abo")}
+    else:
+        abo_slugs = {slug for slug, _, _ in abo_karten}
+        if not abo_karten and any(e.get("abo") for e in aktiv.values()):
+            print("⚠️  Abo-Liste ist leer – bisheriger Stand bleibt (Seite evtl. geändert).")
+            abo_slugs = {slug for slug, e in aktiv.items() if e.get("abo")}
+    watch_slugs = {slug for slug, _, _ in karten}
+    # Watchlist und Abos zusammenführen – jeder Anime nur einmal
+    bekannt = set(watch_slugs)
+    for k in abo_karten or []:
+        if k[0] not in bekannt:
+            karten.append(k)
+            bekannt.add(k[0])
+    for slug in abo_slugs - bekannt:  # Abo bekannt, aber Liste nicht geladen
+        e = aktiv[slug]
+        karten.append((slug, e["titel"], e.get("cover", "")))
+        bekannt.add(slug)
+    print(f"   {len(watch_slugs)} in der Watchlist, {len(abo_slugs)} abonniert, "
+          f"{len(watch_slugs & abo_slugs)} davon in beiden → {len(karten)} Anime")
 
     # Sicherheitsnetz: leere Watchlist bei vorher vielen Einträgen ist verdächtig
     if not karten and len(aktiv) > 3:
@@ -402,6 +444,10 @@ def befehl_sync(args=None):
         aktiv[slug] = eintrag
         print(f"  ➕ neu [{i}/{len(neu)}]: {titel}")
 
+    for slug, e in aktiv.items():
+        e["watchlist"] = slug in watch_slugs
+        e["abo"] = slug in abo_slugs
+
     # Reihenfolge wie auf AniWorld übernehmen
     reihenfolge = {slug: i for i, (slug, _, _) in enumerate(karten)}
     daten["aktiv"] = dict(sorted(aktiv.items(), key=lambda kv: reihenfolge.get(kv[0], 1e9)))
@@ -413,7 +459,12 @@ def befehl_sync(args=None):
     client.speichern()
 
     print(f"\n✅ Fertig: {len(neu)} neu, {len(weg)} entfernt, "
-          f"{len(daten['aktiv'])} in der Watchlist.")
+          f"{len(daten['aktiv'])} Anime (Watchlist + Abos).")
+    fertig = [e["titel"] for e in daten["aktiv"].values() if e.get("abo") and e.get("offen") == 0]
+    if fertig:
+        print(f"   Abonniert und schon komplett gesehen ({len(fertig)}):")
+        for t in fertig:
+            print(f"     ✓ {t}")
     print(f"   Liste: {os.path.basename(MD_DATEI)} und {os.path.basename(HTML_DATEI)}")
     hochladen()
 
@@ -557,15 +608,19 @@ def befehl_liste(args):
     sprache = getattr(args, "sprache", None)
     folgen = getattr(args, "folgen", None)
     sortierung = getattr(args, "sortierung", None)
-    eintraege = _sortieren([e for e in quelle.values() if _passt(e, genre, sprache, folgen)], sortierung)
+    nur_abos = getattr(args, "abos", False)
+    eintraege = _sortieren([e for e in quelle.values() if _passt(e, genre, sprache, folgen)
+                            and (not nur_abos or e.get("abo"))], sortierung)
     for i, e in enumerate(eintraege, 1):
         zusatz = f" – entfernt am {e['entfernt_am']}" if "entfernt_am" in e else ""
         genres = f"  [{', '.join(_echte_genres(e)[:3])}]" if _echte_genres(e) else ""
-        dub = " 🇩🇪" if "Ger" in _sprachen(e) else ""
+        dub = (" 🇩🇪" if "Ger" in _sprachen(e) else "") + (" 🔔" if e.get("abo") else "")
         stand = f"  ({e['gesehen']}/{e['gesamt']}" + (f", {e['offen']} offen)" if e["offen"] else " ✓)") \
             if "offen" in e else ""
         print(f"{i:4}. {e['titel']}{dub}{stand}{genres}{zusatz}")
     filt = _filter_text(genre, sprache, folgen)
+    if nur_abos:
+        filt = ", ".join(filter(None, ["nur Abos", filt]))
     if sortierung and sortierung != "watchlist":
         filt = ", ".join(filter(None, [filt, "sortiert: " + SORTIERUNGEN[sortierung][0]]))
     print(f"\n{len(eintraege)} Anime" + (f" ({filt})" if filt else "")
@@ -622,7 +677,8 @@ def exportieren(daten):
     nutzdaten = json.dumps([
         {"t": e["titel"], "u": e["url"], "c": e.get("cover", ""), "g": _echte_genres(e), "l": _sprachen(e),
          "gs": e.get("gesehen"), "ge": e.get("gesamt"),
-         "j": e.get("jahr"), "s": e.get("staffeln"), "h": e.get("hinzugefuegt_am") or "", "b": e.get("beschreibung", "")[:300]}
+         "j": e.get("jahr"), "s": e.get("staffeln"), "h": e.get("hinzugefuegt_am") or "", "a": 1 if e.get("abo") else 0,
+         "w": 0 if e.get("watchlist") is False else 1, "b": e.get("beschreibung", "")[:300]}
         for e in daten["aktiv"].values()], ensure_ascii=False).replace("</", "<\\/")
     with open(HTML_DATEI, "w", encoding="utf-8") as f:
         f.write(HTML_VORLAGE.replace("__DATEN__", nutzdaten)
@@ -661,6 +717,7 @@ a.k div{padding:8px}a.k b{display:block;font-size:14px}a.k span{font-size:12px;c
 <div id="menu"><input id="q" placeholder="Suchen …"><select id="g"><option value="">Alle Genres</option></select>
 <select id="l"><option value="">Alle Sprachen</option><option value="dub">Deutsche Synchro</option><option value="sub">Deutsche Untertitel</option><option value="nursub">Nur Untertitel (keine Synchro)</option></select>
 <select id="f"><option value="">Alle Folgen</option><option value="offen" selected>Noch offene Folgen</option><option value="eine">Genau 1 offene Folge</option><option value="angefangen">Angefangen</option><option value="neu">Noch nicht angefangen</option><option value="fertig">Alles gesehen</option></select>
+<select id="qu" title="Quelle"><option value="">Watchlist + Abos</option><option value="w">Nur Watchlist</option><option value="a">Nur Abos 🔔</option></select>
 <select id="o" title="Sortierung"><option value="">Watchlist-Reihenfolge</option><option value="wenig">Wenigste offene Folgen</option><option value="viel">Meiste offene Folgen</option><option value="fortschritt">Am weitesten geschaut</option><option value="titel">Titel A–Z</option><option value="jneu">Jahr: neueste zuerst</option><option value="jalt">Jahr: älteste zuerst</option><option value="hinzu">Zuletzt hinzugefügt</option></select>
 <a id="sync" class="knopf" href="__SYNC__" target="_blank" title="Öffnet GitHub: dort auf „Run workflow“ klicken, nach 1–2 Minuten diese Seite neu laden">🔄 Aktualisieren</a></div>
 <button id="btn">🎲 Zufällig</button></header>
@@ -675,7 +732,7 @@ const FF={offen:a=>a.ge-a.gs>0,eine:a=>a.ge-a.gs===1,angefangen:a=>a.gs>0&&a.ge-
 if(!D.some(a=>a.ge!=null))$('#f').value='';
 const stand=a=>a.ge==null?'':a.ge-a.gs>0?`${a.gs}/${a.ge} · ${a.ge-a.gs} offen`:`${a.gs}/${a.ge} ✓`;
 const balken=a=>a.ge?`<i class="bar"><i style="width:${Math.round(100*a.gs/a.ge)}%"></i></i>`:'';
-const gefiltert=()=>{const q=$('#q').value.toLowerCase(),g=$('#g').value,l=$('#l').value,f=$('#f').value;return D.filter(a=>(!g||a.g.includes(g))&&(!l||SF[l](a.l))&&(!f||(a.ge!=null&&FF[f](a)))&&a.t.toLowerCase().includes(q))};
+const gefiltert=()=>{const q=$('#q').value.toLowerCase(),g=$('#g').value,l=$('#l').value,f=$('#f').value,qu=$('#qu').value;return D.filter(a=>(!qu||a[qu])&&(!g||a.g.includes(g))&&(!l||SF[l](a.l))&&(!f||(a.ge!=null&&FF[f](a)))&&a.t.toLowerCase().includes(q))};
 const OF=a=>a.ge==null?null:a.ge-a.gs;
 // Vergleichsfunktionen; Einträge ohne Wert landen immer am Ende, Gleichstand behält die Watchlist-Reihenfolge
 const hinten=(x,y,f)=>x==null?(y==null?0:1):y==null?-1:f(x,y);
@@ -689,13 +746,13 @@ const sortiert=L=>{const o=$('#o').value;return OS[o]?[...L].sort(OS[o]):L};
 try{const o=localStorage.getItem('sortierung');if(o&&OS[o])$('#o').value=o}catch(e){}
 function zeigen(){const L=sortiert(gefiltert());try{localStorage.setItem('sortierung',$('#o').value)}catch(e){}
 // Handy: Anzahl aktiver Filter am Menü-Knopf anzeigen, damit man sie auch eingeklappt sieht
-const n=[$('#q').value,$('#g').value,$('#l').value,$('#f').value!=='offen',$('#o').value].filter(Boolean).length;
+const n=[$('#q').value,$('#qu').value,$('#g').value,$('#l').value,$('#f').value!=='offen',$('#o').value].filter(Boolean).length;
 $('#auf').textContent='☰ Filter'+(n?` (${n})`:'');$('#anz').textContent=`· ${L.length} Anime · Stand __STAND__`;
-$('#grid').innerHTML=L.map(a=>`<a class="k" href="${esc(a.u)}" target="_blank"><img loading="lazy" src="${esc(a.c)}" alt=""><div><b>${esc(a.t)}</b><span>${esc([a.j,a.l.includes('Ger')?'DE Synchro':'',a.g.slice(0,2).join(', ')].filter(Boolean).join(' · '))}</span>${a.ge!=null?`<span class="st">${esc(stand(a))}</span>${balken(a)}`:''}</div></a>`).join('')}
+$('#grid').innerHTML=L.map(a=>`<a class="k" href="${esc(a.u)}" target="_blank"><img loading="lazy" src="${esc(a.c)}" alt=""><div><b>${a.a?'🔔 ':''}${esc(a.t)}</b><span>${esc([a.j,a.l.includes('Ger')?'DE Synchro':'',a.g.slice(0,2).join(', ')].filter(Boolean).join(' · '))}</span>${a.ge!=null?`<span class="st">${esc(stand(a))}</span>${balken(a)}`:''}</div></a>`).join('')}
 $('#btn').onclick=()=>{const L=gefiltert();if(!L.length)return;const a=L[Math.floor(Math.random()*L.length)];const z=$('#zufall');z.style.display='flex';
 z.innerHTML=`<img src="${esc(a.c)}" alt=""><div><h2>${esc(a.t)}</h2><small>${esc([a.j,a.s?a.s+' Staffel(n)':'',stand(a),a.l.map(x=>SN[x]).join(', '),a.g.join(', ')].filter(Boolean).join(' · '))}</small><p>${esc(a.b)}…</p><a href="${esc(a.u)}" target="_blank">▶ Auf AniWorld öffnen</a></div>`};
 $('#auf').onclick=()=>{const h=$('header');$('#auf').setAttribute('aria-expanded',h.classList.toggle('offen'))};
-$('#q').oninput=$('#g').onchange=$('#l').onchange=$('#f').onchange=$('#o').onchange=zeigen;zeigen();
+$('#q').oninput=$('#g').onchange=$('#l').onchange=$('#f').onchange=$('#o').onchange=$('#qu').onchange=zeigen;zeigen();
 </script></body></html>
 """
 
@@ -904,6 +961,7 @@ def main():
     l.add_argument("-o", "--sortierung", choices=list(SORTIERUNGEN), default="watchlist",
                    help="; ".join(f"{k} = {v[0]}" for k, v in SORTIERUNGEN.items()))
     l.add_argument("--entfernt", action="store_true", help="entfernte/fertige zeigen")
+    l.add_argument("--abos", action="store_true", help="nur abonnierte Anime (🔔)")
     l.set_defaults(f=befehl_liste)
     s = sub.add_parser("suche", help="in Titeln und Beschreibungen suchen")
     s.add_argument("text", nargs="+")
