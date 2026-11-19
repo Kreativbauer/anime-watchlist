@@ -864,12 +864,12 @@
       "folgen": {
         "1": [
           8,
-          7
+          8
         ]
       },
       "gesamt": 8,
-      "gesehen": 7,
-      "offen": 1,
+      "gesehen": 8,
+      "offen": 0,
       "watchlist": true,
       "abo": true
     },
@@ -18858,9 +18858,10 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-18 22:16",
+  "letzter_sync": "2026-11-19 06:35",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
-  ]
+  ],
+  "letzte_gruendliche_pruefung": "2026-11-19 06:35"
 }
