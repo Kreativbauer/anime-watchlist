@@ -1,5 +1,40 @@
 {
   "aktiv": {
+    "call-of-the-night": {
+      "titel": "Call of the Night",
+      "url": "https://aniworld.to/anime/stream/call-of-the-night",
+      "genres": [
+        "Romantische Komödie",
+        "Alltagsleben",
+        "EngSub",
+        "Ger",
+        "GerSub",
+        "Mystery"
+      ],
+      "jahr": 2022,
+      "bis": "2025",
+      "beschreibung": "In einer schlaflosen Nacht schleicht sich Kou hinaus, um durch die Straßen zu wandern. Und das Leben nach Einbruch der Dunkelheit ist eine wahre Offenbarung! Als die kokette Nazuna Kou einlädt, die Nacht mit ihr in einem verlassenen Gebäude zu verbringen, ist er Feuer und Flamme! Wenig später verspürt er Küsse auf seinem Hals, die ein wenige zu viel Biss haben. Ist es rein der köstliche Geschmack seines Blutes, der Nazuna dazu bringt, Nacht für Nacht mit ihm zu verbringen und … ein Nickerchen zu machen, oder etwas anderes? Als dann ein süßes Mädchen aus Kous Vergangenheit auftaucht und um seine Aufmerksamkeit buhlt, wird seine aufkeimende Beziehung zu den Untoten auf die Probe gestellt!",
+      "staffeln": 2,
+      "filme": false,
+      "imdb": "tt15975122",
+      "cover": "https://aniworld.to/public/img/cover/call-of-the-night-stream-cover-aL5ZkVwqB0Nh5xLiu0JrJMwjgq4zdnZF_200x300.jpg",
+      "hinzugefuegt_am": "2026-10-19 14:53",
+      "folgen": {
+        "1": [
+          13,
+          13
+        ],
+        "2": [
+          12,
+          1
+        ]
+      },
+      "gesamt": 25,
+      "gesehen": 14,
+      "offen": 11,
+      "watchlist": true,
+      "abo": false
+    },
     "air": {
       "titel": "Air",
       "url": "https://aniworld.to/anime/stream/air",
@@ -636,13 +671,13 @@
           12
         ],
         "2": [
-          6,
+          7,
           4
         ]
       },
-      "gesamt": 18,
+      "gesamt": 19,
       "gesehen": 16,
-      "offen": 2,
+      "offen": 3,
       "watchlist": true,
       "abo": true
     },
@@ -893,13 +928,13 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          7,
+          8,
           2
         ]
       },
-      "gesamt": 7,
+      "gesamt": 8,
       "gesehen": 2,
-      "offen": 5,
+      "offen": 6,
       "watchlist": true,
       "abo": false
     },
@@ -1249,13 +1284,13 @@
           3
         ],
         "2": [
-          7,
+          8,
           0
         ]
       },
-      "gesamt": 21,
+      "gesamt": 22,
       "gesehen": 3,
-      "offen": 18,
+      "offen": 19,
       "watchlist": true,
       "abo": false
     },
@@ -10222,41 +10257,6 @@
       "watchlist": true,
       "abo": false
     },
-    "call-of-the-night": {
-      "titel": "Call of the Night",
-      "url": "https://aniworld.to/anime/stream/call-of-the-night",
-      "genres": [
-        "Romantische Komödie",
-        "Alltagsleben",
-        "EngSub",
-        "Ger",
-        "GerSub",
-        "Mystery"
-      ],
-      "jahr": 2022,
-      "bis": "2025",
-      "beschreibung": "In einer schlaflosen Nacht schleicht sich Kou hinaus, um durch die Straßen zu wandern. Und das Leben nach Einbruch der Dunkelheit ist eine wahre Offenbarung! Als die kokette Nazuna Kou einlädt, die Nacht mit ihr in einem verlassenen Gebäude zu verbringen, ist er Feuer und Flamme! Wenig später verspürt er Küsse auf seinem Hals, die ein wenige zu viel Biss haben. Ist es rein der köstliche Geschmack seines Blutes, der Nazuna dazu bringt, Nacht für Nacht mit ihm zu verbringen und … ein Nickerchen zu machen, oder etwas anderes? Als dann ein süßes Mädchen aus Kous Vergangenheit auftaucht und um seine Aufmerksamkeit buhlt, wird seine aufkeimende Beziehung zu den Untoten auf die Probe gestellt!",
-      "staffeln": 2,
-      "filme": false,
-      "imdb": "tt15975122",
-      "cover": "https://aniworld.to/public/img/cover/call-of-the-night-stream-cover-aL5ZkVwqB0Nh5xLiu0JrJMwjgq4zdnZF_200x300.jpg",
-      "hinzugefuegt_am": "2026-10-19 14:53",
-      "folgen": {
-        "1": [
-          13,
-          11
-        ],
-        "2": [
-          12,
-          0
-        ]
-      },
-      "gesamt": 25,
-      "gesehen": 11,
-      "offen": 14,
-      "watchlist": true,
-      "abo": false
-    },
     "engage-kiss": {
       "titel": "Engage Kiss",
       "url": "https://aniworld.to/anime/stream/engage-kiss",
@@ -18858,7 +18858,7 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-19 06:35",
+  "letzter_sync": "2026-11-20 04:00",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
