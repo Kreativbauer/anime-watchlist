@@ -635,13 +635,13 @@
           24
         ],
         "3": [
-          7,
+          8,
           4
         ]
       },
-      "gesamt": 55,
+      "gesamt": 56,
       "gesehen": 52,
-      "offen": 3,
+      "offen": 4,
       "watchlist": true,
       "abo": true
     },
@@ -1064,12 +1064,12 @@
       "folgen": {
         "1": [
           12,
-          8
+          9
         ]
       },
       "gesamt": 12,
-      "gesehen": 8,
-      "offen": 4,
+      "gesehen": 9,
+      "offen": 3,
       "watchlist": true,
       "abo": true
     },
@@ -13189,12 +13189,12 @@
       "folgen": {
         "1": [
           12,
-          11
+          12
         ]
       },
       "gesamt": 12,
-      "gesehen": 11,
-      "offen": 1
+      "gesehen": 12,
+      "offen": 0
     },
     "a-gatherers-adventure-in-isekai": {
       "titel": "A Gatherer's Adventure in Isekai",
@@ -18412,12 +18412,12 @@
       "folgen": {
         "1": [
           12,
-          11
+          12
         ]
       },
       "gesamt": 12,
-      "gesehen": 11,
-      "offen": 1
+      "gesehen": 12,
+      "offen": 0
     },
     "so-im-a-spider-so-what": {
       "titel": "So I’m a Spider, So What?",
@@ -18751,12 +18751,12 @@
         ],
         "2": [
           12,
-          11
+          12
         ]
       },
       "gesamt": 24,
-      "gesehen": 23,
-      "offen": 1
+      "gesehen": 24,
+      "offen": 0
     },
     "a-chivalry-of-a-failed-knight": {
       "titel": "A Chivalry of a Failed Knight",
@@ -18858,7 +18858,7 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-20 04:00",
+  "letzter_sync": "2026-11-21 04:07",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
