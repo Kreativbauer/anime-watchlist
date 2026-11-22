@@ -808,13 +808,13 @@
       "hinzugefuegt_am": "2026-10-19 14:49",
       "folgen": {
         "1": [
-          7,
+          8,
           1
         ]
       },
-      "gesamt": 7,
+      "gesamt": 8,
       "gesehen": 1,
-      "offen": 6,
+      "offen": 7,
       "watchlist": true,
       "abo": true
     },
@@ -898,12 +898,12 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          8,
-          8
+          9,
+          9
         ]
       },
-      "gesamt": 8,
-      "gesehen": 8,
+      "gesamt": 9,
+      "gesehen": 9,
       "offen": 0,
       "watchlist": true,
       "abo": true
@@ -958,12 +958,12 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          7,
-          7
+          8,
+          8
         ]
       },
-      "gesamt": 7,
-      "gesehen": 7,
+      "gesamt": 8,
+      "gesehen": 8,
       "offen": 0,
       "watchlist": true,
       "abo": true
@@ -1035,13 +1035,13 @@
           12
         ],
         "2": [
-          8,
+          9,
           2
         ]
       },
-      "gesamt": 20,
+      "gesamt": 21,
       "gesehen": 14,
-      "offen": 6,
+      "offen": 7,
       "watchlist": true,
       "abo": true
     },
@@ -7796,13 +7796,13 @@
           0
         ],
         "5": [
-          7,
+          8,
           0
         ]
       },
-      "gesamt": 177,
+      "gesamt": 178,
       "gesehen": 0,
-      "offen": 177,
+      "offen": 178,
       "watchlist": true,
       "abo": false
     },
@@ -9730,13 +9730,13 @@
           0
         ],
         "32": [
-          53,
+          55,
           0
         ]
       },
-      "gesamt": 1257,
+      "gesamt": 1259,
       "gesehen": 8,
-      "offen": 1249,
+      "offen": 1251,
       "watchlist": true,
       "abo": false
     },
@@ -18858,7 +18858,7 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-21 04:07",
+  "letzter_sync": "2026-11-22 03:05",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
