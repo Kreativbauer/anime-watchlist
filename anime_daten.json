@@ -1,5 +1,40 @@
 {
   "aktiv": {
+    "fullmetal-alchemist-brotherhood": {
+      "titel": "Fullmetal Alchemist: Brotherhood",
+      "url": "https://aniworld.to/anime/stream/fullmetal-alchemist-brotherhood",
+      "genres": [
+        "Abenteuer",
+        "Action",
+        "Drama",
+        "Fantasy",
+        "Fighting-Shounen",
+        "Ger",
+        "GerSub",
+        "Komödie",
+        "Psychodrama",
+        "Übermäßige Gewaltdarstellung"
+      ],
+      "jahr": 2009,
+      "bis": "2010",
+      "beschreibung": "Die beiden Brüder und Alchemisten Edward und Alphonse Elric haben, als sie noch klein waren, einen verhängnisvollen Fehler begangen: Als ihnen die Durchführung einer streng verbotenen Transmutation misslingt, verliert Edward ein Bein. Seinen Bruder trifft es sogar noch schlimmer. Edward kann ihn nur retten, indem er im Zuge eines äquivalenten Tausches seinen eigenen Arm opfert und Alphons Seele an eine Rüstung bindet - dessen Körper aber scheint verloren. Ein viel zu hoher Preis, den die beiden für ihren Leichtsinn zahlen mussten. Deshalb beschließen sie alles zu versuchen, um ihre alten Körper zurückzubekommen. Im Bestreben die besten Forschungsbedingungen auf dem Gebiet der Alchemie zu erlangen, führt sie ihr Weg schließlich zur Armee von Amestris. Die Militärdiktatur des Landes setzt sogenannte Staats-Alchemisten als Elitekämpfer in Kriegen und Konflikten ein. In Friedenszeiten hingegen steht es den Lakaien der Armee frei, zu forschen und Zugriff auf umfangreiche Aufzeichnungen über Alchemie, sowie entsprechende finanzielle Mittel zu erhalten. Doch schon bald müssen die beiden Elric-Brüder feststellen, dass ihre eigenen Probleme im Vergleich zu der Bedrohung, die dem Land Amestris droht, geradezu unscheinbar wirken...",
+      "staffeln": 1,
+      "filme": true,
+      "imdb": "tt1355642",
+      "cover": "https://aniworld.to/public/img/cover/fullmetal-alchemist-brotherhood-stream-cover-s2KT6y50FuUZFVw6ZhVbuBK4MKEXOBvE_200x300.jpg",
+      "hinzugefuegt_am": "2026-11-23 03:30",
+      "watchlist": true,
+      "abo": false,
+      "folgen": {
+        "1": [
+          64,
+          1
+        ]
+      },
+      "gesamt": 64,
+      "gesehen": 1,
+      "offen": 63
+    },
     "call-of-the-night": {
       "titel": "Call of the Night",
       "url": "https://aniworld.to/anime/stream/call-of-the-night",
@@ -88,12 +123,12 @@
       "folgen": {
         "1": [
           7,
-          5
+          7
         ]
       },
       "gesamt": 7,
-      "gesehen": 5,
-      "offen": 2,
+      "gesehen": 7,
+      "offen": 0,
       "watchlist": true,
       "abo": false
     },
@@ -145,12 +180,12 @@
       "hinzugefuegt_am": "2026-11-08 21:53",
       "folgen": {
         "1": [
-          6,
-          6
+          7,
+          7
         ]
       },
-      "gesamt": 6,
-      "gesehen": 6,
+      "gesamt": 7,
+      "gesehen": 7,
       "offen": 0,
       "watchlist": true,
       "abo": true
@@ -274,13 +309,13 @@
       "hinzugefuegt_am": "2026-11-05 07:50",
       "folgen": {
         "1": [
-          8,
+          9,
           6
         ]
       },
-      "gesamt": 8,
+      "gesamt": 9,
       "gesehen": 6,
-      "offen": 2,
+      "offen": 3,
       "watchlist": true,
       "abo": true
     },
@@ -597,13 +632,13 @@
       "hinzugefuegt_am": "2026-10-19 14:49",
       "folgen": {
         "1": [
-          7,
+          8,
           7
         ]
       },
-      "gesamt": 7,
+      "gesamt": 8,
       "gesehen": 7,
-      "offen": 0,
+      "offen": 1,
       "watchlist": true,
       "abo": true
     },
@@ -1654,13 +1689,13 @@
           22
         ],
         "2": [
-          18,
+          19,
           0
         ]
       },
-      "gesamt": 45,
+      "gesamt": 46,
       "gesehen": 22,
-      "offen": 23,
+      "offen": 24,
       "watchlist": true,
       "abo": false
     },
@@ -4981,13 +5016,13 @@
           17
         ],
         "2": [
-          6,
+          7,
           0
         ]
       },
-      "gesamt": 31,
+      "gesamt": 32,
       "gesehen": 17,
-      "offen": 14,
+      "offen": 15,
       "watchlist": true,
       "abo": true
     },
@@ -6712,13 +6747,13 @@
           0
         ],
         "3": [
-          8,
+          9,
           0
         ]
       },
-      "gesamt": 32,
+      "gesamt": 33,
       "gesehen": 10,
-      "offen": 22,
+      "offen": 23,
       "watchlist": true,
       "abo": true
     },
@@ -9060,7 +9095,7 @@
       "folgen": {
         "1": [
           24,
-          0
+          1
         ],
         "2": [
           12,
@@ -9068,8 +9103,8 @@
         ]
       },
       "gesamt": 36,
-      "gesehen": 0,
-      "offen": 36,
+      "gesehen": 1,
+      "offen": 35,
       "watchlist": true,
       "abo": false
     },
@@ -18858,7 +18893,7 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-22 03:05",
+  "letzter_sync": "2026-11-23 03:31",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
