@@ -28,12 +28,12 @@
       "folgen": {
         "1": [
           64,
-          1
+          2
         ]
       },
       "gesamt": 64,
-      "gesehen": 1,
-      "offen": 63
+      "gesehen": 2,
+      "offen": 62
     },
     "call-of-the-night": {
       "titel": "Call of the Night",
@@ -122,13 +122,13 @@
       "hinzugefuegt_am": "2026-11-16 21:10",
       "folgen": {
         "1": [
-          7,
+          8,
           7
         ]
       },
-      "gesamt": 7,
+      "gesamt": 8,
       "gesehen": 7,
-      "offen": 0,
+      "offen": 1,
       "watchlist": true,
       "abo": false
     },
@@ -4079,13 +4079,13 @@
           1
         ],
         "2": [
-          7,
+          8,
           0
         ]
       },
-      "gesamt": 19,
+      "gesamt": 20,
       "gesehen": 1,
-      "offen": 18,
+      "offen": 19,
       "watchlist": true,
       "abo": false
     },
@@ -18893,7 +18893,7 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-23 03:31",
+  "letzter_sync": "2026-11-24 06:54",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
