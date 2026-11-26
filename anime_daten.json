@@ -744,13 +744,13 @@
           12
         ],
         "2": [
-          7,
+          8,
           3
         ]
       },
-      "gesamt": 19,
+      "gesamt": 20,
       "gesehen": 15,
-      "offen": 4,
+      "offen": 5,
       "watchlist": true,
       "abo": true
     },
@@ -780,13 +780,13 @@
           12
         ],
         "2": [
-          8,
+          9,
           1
         ]
       },
-      "gesamt": 20,
+      "gesamt": 21,
       "gesehen": 13,
-      "offen": 7,
+      "offen": 8,
       "watchlist": true,
       "abo": true
     },
@@ -815,13 +815,13 @@
           12
         ],
         "2": [
-          7,
+          8,
           1
         ]
       },
-      "gesamt": 19,
+      "gesamt": 20,
       "gesehen": 13,
-      "offen": 6,
+      "offen": 7,
       "watchlist": true,
       "abo": true
     },
@@ -1316,7 +1316,7 @@
       "folgen": {
         "1": [
           14,
-          3
+          4
         ],
         "2": [
           8,
@@ -1324,8 +1324,8 @@
         ]
       },
       "gesamt": 22,
-      "gesehen": 3,
-      "offen": 19,
+      "gesehen": 4,
+      "offen": 18,
       "watchlist": true,
       "abo": false
     },
@@ -18893,7 +18893,7 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-25 09:33",
+  "letzter_sync": "2026-11-26 05:05",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
