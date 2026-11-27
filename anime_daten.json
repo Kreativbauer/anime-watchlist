@@ -706,13 +706,13 @@
           12
         ],
         "2": [
-          7,
+          8,
           4
         ]
       },
-      "gesamt": 19,
+      "gesamt": 20,
       "gesehen": 16,
-      "offen": 3,
+      "offen": 4,
       "watchlist": true,
       "abo": true
     },
@@ -963,13 +963,13 @@
       "hinzugefuegt_am": "2026-10-19 14:50",
       "folgen": {
         "1": [
-          8,
+          9,
           2
         ]
       },
-      "gesamt": 8,
+      "gesamt": 9,
       "gesehen": 2,
-      "offen": 6,
+      "offen": 7,
       "watchlist": true,
       "abo": false
     },
@@ -1316,15 +1316,15 @@
       "folgen": {
         "1": [
           14,
-          4
+          5
         ],
         "2": [
-          8,
+          9,
           0
         ]
       },
-      "gesamt": 22,
-      "gesehen": 4,
+      "gesamt": 23,
+      "gesehen": 5,
       "offen": 18,
       "watchlist": true,
       "abo": false
@@ -18893,10 +18893,10 @@
     }
   },
   "entfernt": {},
-  "letzter_sync": "2026-11-26 05:05",
+  "letzter_sync": "2026-11-27 05:05",
   "zufall_verlauf": [
     "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
     "the-day-i-became-a-god"
   ],
-  "letzte_gruendliche_pruefung": "2026-11-19 06:35"
+  "letzte_gruendliche_pruefung": "2026-11-27 05:05"
 }
